@@ -8,6 +8,7 @@
  xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
  xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
  xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
+ xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing"
  xmlns:ui="http://schemas.uipath.com/workflow/activities"
  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
@@ -58,21 +59,46 @@
   </TextExpression.ReferencesForImplementation>
   <Flowchart DisplayName="Main" sap2010:WorkflowViewState.IdRef="Flowchart_1">
     <Flowchart.Variables>
-      <Variable x:TypeArguments="ui:GenericValue" Name="treePolicyHead" />
+      <Variable x:TypeArguments="ui:GenericValue" Name="WindowsformsWindow" />
     </Flowchart.Variables>
     <Flowchart.StartNode>
-      <FlowStep x:Name="__ReferenceID5" sap2010:WorkflowViewState.IdRef="FlowStep_33">
-        <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'WindowsForms10.Window.8...'" sap2010:WorkflowViewState.IdRef="GetValue_2">
-          <ui:GetValue.Target>
-            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="e247e69699ea62c99010a208b4aced9d" Selector="&lt;wnd app='imageright.desktop.exe' ctrlname='DesktopMainForm' /&gt;&lt;wnd cls='WindowsForms10.Window.*' title='File View' /&gt;&lt;wnd ctrlname='dockableWindow1' idx='1' /&gt;&lt;wnd ctrlname='fileHolder' /&gt;&lt;wnd ctrlname='fileTreeHolder' /&gt;&lt;wnd ctrlname='FileTreeView' /&gt;&lt;wnd ctrlname='virtualTree' /&gt;&lt;wnd ctrlname='_clipControl' /&gt;" WaitForReady="INTERACTIVE" />
-          </ui:GetValue.Target>
-          <ui:GetValue.Value>
-            <OutArgument x:TypeArguments="ui:GenericValue">[treePolicyHead]</OutArgument>
-          </ui:GetValue.Value>
-        </ui:GetValue>
+      <FlowStep x:Name="__ReferenceID4" sap2010:WorkflowViewState.IdRef="FlowStep_37">
+        <Sequence DisplayName="Screen scraping" sap2010:WorkflowViewState.IdRef="Sequence_38">
+          <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window 'DesktopMa Imagerigh'" sap2010:WorkflowViewState.IdRef="WindowScope_8" InformativeScreenshot="a220333811a0e53434682dd51853306b" Selector="&lt;wnd app='imageright.desktop.exe' ctrlname='DesktopMainForm' /&gt;">
+            <ui:WindowScope.Body>
+              <ActivityAction x:TypeArguments="x:Object">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_37">
+                  <ui:GetOCRText WordsInfo="{x:Null}" DisplayName="Get OCR text 'WindowsForms10.Window.8...'" sap2010:WorkflowViewState.IdRef="GetOCRText_4">
+                    <ui:GetOCRText.OCREngine>
+                      <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd:Rectangle, x:String))">
+                        <ActivityFunc.Argument>
+                          <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+                        </ActivityFunc.Argument>
+                        <ui:GoogleOCR FilterRegion="{x:Null}" Text="{x:Null}" AllowedCharacters="" DeniedCharacters="" DisplayName="Google OCR" ExtractWords="False" sap2010:WorkflowViewState.IdRef="GoogleOCR_2" Image="[Image]" Invert="False" Language="eng" Profile="Screen" Scale="2" />
+                      </ActivityFunc>
+                    </ui:GetOCRText.OCREngine>
+                    <ui:GetOCRText.Target>
+                      <ui:Target Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="9116be3cdbd64b08adbdfd3864ed367e" Selector="&lt;wnd cls='WindowsForms10.Window.*' title='File View' /&gt;&lt;wnd ctrlname='dockableWindow1' idx='1' /&gt;&lt;wnd ctrlname='fileHolder' /&gt;&lt;wnd ctrlname='fileTreeHolder' /&gt;&lt;wnd ctrlname='FileTreeView' /&gt;&lt;wnd ctrlname='virtualTree' /&gt;&lt;wnd ctrlname='_clipControl' /&gt;" WaitForReady="INTERACTIVE">
+                        <ui:Target.ClippingRegion>
+                          <ui:Region Rectangle="74, 32, 199, 25" />
+                        </ui:Target.ClippingRegion>
+                      </ui:Target>
+                    </ui:GetOCRText.Target>
+                    <ui:GetOCRText.Text>
+                      <OutArgument x:TypeArguments="ui:GenericValue">[WindowsformsWindow]</OutArgument>
+                    </ui:GetOCRText.Text>
+                  </ui:GetOCRText>
+                </Sequence>
+              </ActivityAction>
+            </ui:WindowScope.Body>
+          </ui:WindowScope>
+        </Sequence>
         <FlowStep.Next>
-          <FlowStep x:Name="__ReferenceID4" sap2010:WorkflowViewState.IdRef="FlowStep_32">
-            <ui:MessageBox ChosenButton="{x:Null}" Buttons="Ok" Caption="Info" DisplayName="Message box" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[treePolicyHead]" TopMost="True" />
+          <FlowStep x:Name="__ReferenceID5" sap2010:WorkflowViewState.IdRef="FlowStep_38">
+            <ui:MessageBox ChosenButton="{x:Null}" Buttons="Ok" Caption="Info" DisplayName="Message box" sap2010:WorkflowViewState.IdRef="MessageBox_3" Text="[WindowsformsWindow]" TopMost="True" />
           </FlowStep>
         </FlowStep.Next>
       </FlowStep>
@@ -231,38 +257,48 @@
     </FlowStep>
     <x:Reference>__ReferenceID4</x:Reference>
     <x:Reference>__ReferenceID5</x:Reference>
-    <sads:DebugSymbol.Symbol>dylDOlxkZXZcVWlQYXRoXElSTWFya1BvbGljeVBhZ2VzXE1haW4ueGFtbAc7A+sBDwIBAUEJSBcCAQVLDUvCAQIBAkY8RkwCAQZDnAFDiAQCAQhLSUtPAgEES54BS7ABAgED</sads:DebugSymbol.Symbol>
+    <sads:DebugSymbol.Symbol>dylDOlxkZXZcVWlQYXRoXElSTWFya1BvbGljeVBhZ2VzXE1haW4ueGFtbA88A4UCDwIBAUIJYhQCAQVlDWXGAQIBAkMLYRwCAQZlSWVPAgEEZZ4BZbQBAgEDQ5oCQ+ECAgERSRFeHAIBB0oTXSMCAQhUjAFUswMCARBbRltaAgEOUBlQnwICAQlQmQJQnAICAQ1Q2gFQ4wECAQtQ/AFQgQICAQo=</sads:DebugSymbol.Symbol>
   </Flowchart>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
-      <sap2010:ViewStateData Id="GetValue_2" sap:VirtualizedContainerService.HintSize="200,51">
+      <sap2010:ViewStateData Id="GoogleOCR_2" sap:VirtualizedContainerService.HintSize="200,22" />
+      <sap2010:ViewStateData Id="GetOCRText_4" sap:VirtualizedContainerService.HintSize="314,168" />
+      <sap2010:ViewStateData Id="Sequence_37" sap:VirtualizedContainerService.HintSize="336,292">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="MessageBox_2" sap:VirtualizedContainerService.HintSize="200,51">
+      <sap2010:ViewStateData Id="WindowScope_8" sap:VirtualizedContainerService.HintSize="414,438" />
+      <sap2010:ViewStateData Id="Sequence_38" sap:VirtualizedContainerService.HintSize="200,51">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="FlowStep_32">
+      <sap2010:ViewStateData Id="MessageBox_3" sap:VirtualizedContainerService.HintSize="200,51">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <av:Point x:Key="ShapeLocation">410,264.5</av:Point>
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="FlowStep_38">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <av:Point x:Key="ShapeLocation">430,325.5</av:Point>
             <av:Size x:Key="ShapeSize">200,51</av:Size>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="FlowStep_33">
+      <sap2010:ViewStateData Id="FlowStep_37">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <av:Point x:Key="ShapeLocation">400,154.5</av:Point>
+            <av:Point x:Key="ShapeLocation">430,224.5</av:Point>
             <av:Size x:Key="ShapeSize">200,51</av:Size>
-            <av:PointCollection x:Key="ConnectorLocation">500,205.5 500,235.5 510,235.5 510,264.5</av:PointCollection>
+            <av:PointCollection x:Key="ConnectorLocation">530,275.5 530,325.5</av:PointCollection>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
@@ -400,19 +436,25 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="Flowchart_1" sap:VirtualizedContainerService.HintSize="788,852">
+      <sap2010:ViewStateData Id="Flowchart_1" sap:VirtualizedContainerService.HintSize="788,932">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">False</x:Boolean>
             <av:Point x:Key="ShapeLocation">330,2.5</av:Point>
             <av:Size x:Key="ShapeSize">60,75</av:Size>
-            <av:PointCollection x:Key="ConnectorLocation">360,77.5 360,107.5 500,107.5 500,154.5</av:PointCollection>
+            <av:PointCollection x:Key="ConnectorLocation">360,77.5 360,107.5 530,107.5 530,224.5</av:PointCollection>
             <x:Double x:Key="Width">774.5</x:Double>
-            <x:Double x:Key="Height">815.5</x:Double>
+            <x:Double x:Key="Height">895.5</x:Double>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="Main_1" sap:VirtualizedContainerService.HintSize="828,932" />
+      <sap2010:ViewStateData Id="Main_1" sap:VirtualizedContainerService.HintSize="828,1012">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="ShouldExpandAll">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
     </sap2010:ViewStateManager>
   </sap2010:WorkflowViewState.ViewStateManager>
 </Activity>
