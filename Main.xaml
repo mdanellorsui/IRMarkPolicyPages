@@ -3,6 +3,7 @@
  xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
  xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities"
+ xmlns:s="clr-namespace:System;assembly=mscorlib"
  xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
  xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
  xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
@@ -61,6 +62,7 @@
   <Flowchart DisplayName="Main" sap2010:WorkflowViewState.IdRef="Flowchart_1">
     <Flowchart.Variables>
       <Variable x:TypeArguments="x:Int32" Default="36" Name="numPages" />
+      <Variable x:TypeArguments="s:String[]" Name="decPageDocNumbers" />
     </Flowchart.Variables>
     <Flowchart.StartNode>
       <FlowStep x:Name="__ReferenceID0" sap2010:WorkflowViewState.IdRef="FlowStep_13">
@@ -191,7 +193,7 @@
                           <FlowStep x:Name="__ReferenceID6" sap2010:WorkflowViewState.IdRef="FlowStep_38">
                             <ui:MessageBox ChosenButton="{x:Null}" Buttons="Ok" Caption="Info" DisplayName="Info: Number of Pages" sap2010:WorkflowViewState.IdRef="MessageBox_3" Text="[numPages.ToString]" TopMost="True" />
                             <FlowStep.Next>
-                              <FlowStep x:Name="__ReferenceID8" sap2010:WorkflowViewState.IdRef="FlowStep_44">
+                              <FlowStep x:Name="__ReferenceID7" sap2010:WorkflowViewState.IdRef="FlowStep_44">
                                 <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click push button  Best Fit" sap2010:WorkflowViewState.IdRef="Click_11" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
                                   <ui:Click.CursorPosition>
                                     <ui:CursorPosition Position="Center">
@@ -207,31 +209,6 @@
                                     <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="fc8f200649a6255dee76e24c8a09b46f" Selector="&lt;wnd app='imageright.desktop.exe' ctrlname='ViewerDialog' /&gt;&lt;wnd ctrlname='ViewerControl' /&gt;&lt;wnd ctrlname='viewerPanel' /&gt;&lt;wnd ctrlname='ViewerPanel_Fill_Panel' /&gt;&lt;wnd ctrlname='ultraTabControl' /&gt;&lt;wnd ctrlname='ultraTabPageControlImage' /&gt;&lt;wnd ctrlname='AtalasoftViewerControl' /&gt;&lt;wnd cls='WindowsForms10.Window.*' idx='5' /&gt;&lt;ctrl name='Best Fit' role='push button' /&gt;" WaitForReady="INTERACTIVE" />
                                   </ui:Click.Target>
                                 </ui:Click>
-                                <FlowStep.Next>
-                                  <FlowStep x:Name="__ReferenceID7" sap2010:WorkflowViewState.IdRef="FlowStep_40">
-                                    <DoWhile DisplayName="Loop Thru Pages" sap2010:WorkflowViewState.IdRef="DoWhile_1">
-                                      <DoWhile.Variables>
-                                        <Variable x:TypeArguments="x:Int32" Default="0" Name="counter" />
-                                      </DoWhile.Variables>
-                                      <DoWhile.Condition>[counter &lt;= numPages]</DoWhile.Condition>
-                                      <Sequence DisplayName="Next Page and Fit View" sap2010:WorkflowViewState.IdRef="Sequence_47">
-                                        <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Expand First Policy" EmptyField="False" sap2010:WorkflowViewState.IdRef="TypeInto_10" SendWindowMessages="False" SimulateType="False" Text="%[k(down)]">
-                                          <ui:TypeInto.Target>
-                                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="db0d65ccf4bd483594d442ba140c1e68" Selector="&lt;wnd app='imageright.desktop.exe' ctrlname='DesktopMainForm' /&gt;&lt;wnd cls='WindowsForms10.Window.*' title='File View' /&gt;&lt;wnd ctrlname='dockableWindow1' idx='1' /&gt;&lt;wnd ctrlname='fileHolder' /&gt;&lt;wnd ctrlname='fileTreeHolder' /&gt;&lt;wnd ctrlname='FileTreeView' /&gt;&lt;wnd ctrlname='virtualTree' /&gt;&lt;wnd ctrlname='_clipControl' /&gt;" WaitForReady="INTERACTIVE" />
-                                          </ui:TypeInto.Target>
-                                        </ui:TypeInto>
-                                        <Assign sap2010:WorkflowViewState.IdRef="Assign_2">
-                                          <Assign.To>
-                                            <OutArgument x:TypeArguments="x:Int32">[counter]</OutArgument>
-                                          </Assign.To>
-                                          <Assign.Value>
-                                            <InArgument x:TypeArguments="x:Int32">[counter + 1]</InArgument>
-                                          </Assign.Value>
-                                        </Assign>
-                                      </Sequence>
-                                    </DoWhile>
-                                  </FlowStep>
-                                </FlowStep.Next>
                               </FlowStep>
                             </FlowStep.Next>
                           </FlowStep>
@@ -287,8 +264,7 @@
     <x:Reference>__ReferenceID5</x:Reference>
     <x:Reference>__ReferenceID6</x:Reference>
     <x:Reference>__ReferenceID7</x:Reference>
-    <x:Reference>__ReferenceID8</x:Reference>
-    <sads:DebugSymbol.Symbol>dylDOlxkZXZcVWlQYXRoXElSTWFya1BvbGljeVBhZ2VzXE1haW4ueGFtbDk9A6QCDwIBAT8zPzcCAQJDCUP0AQIBQUYNXBgCAThfEXgcAgEvexWPASYCASiSARm9ASQCARfAAR3AAd8BAgETwwEh0QEsAgER1AEl6AEvAgEDQ3JDwAECAUJHD1sgAgE5YUJhTQIBMGQTaCECATRpE3ceAgExe48Ce5MDAgEugQEbjAEmAgEplgEbvAEsAgEYwAFZwAFfAgEWwAG4AcABzQECARTPAbQBzwHdBAIBEtYBVdYBWAIBBNgBOtgBUgIBDtkBJ+cBMgIBBUeJAkfQAgIBQEfbAkfiAgIBP00VWCACATpmpgFmnQUCATdkpQJktQICATV1pgF1vwICATNpVWlcAgEyggEdhgErAgEshwEdiwErAgEqlgGqApYB8QICASecASG5ASwCARnaASneATcCAQvfASnmATICAQZOF1InAgE9UxdXJwIBO4IBsAKCAcYCAgEthwGxAocBxwICASudASOwATMCAR6xASO4ASwCARrcAbwB3AGoBAIBDdoBvgLaAcoCAgEM5AFT5AFgAgEJ4QFU4QFdAgEHUKoBUMkCAgE+VaoBVckCAgE8pwGcAacBwwMCASauAVauAWoCASSjASmjAa0CAgEftgFNtgGdAQIBHbMBTrMBWAIBG6MBpwKjAaoCAgEjowHpAaMB8gECASGjAYoCowGPAgIBIA==</sads:DebugSymbol.Symbol>
+    <sads:DebugSymbol.Symbol>dylDOlxkZXZcVWlQYXRoXElSTWFya1BvbGljeVBhZ2VzXE1haW4ueGFtbC8+A4wCDwIBAUAzQDcCAQJFCUX0AQIBM0gNXhgCASphEXocAgEhfRWRASYCARqUARm/ASQCAQnCAR3CAd8BAgEFxQEh0wEsAgEDRXJFwAECATRJD10gAgErY0JjTQIBImYTaiECASZrE3keAgEjfY8CfZMDAgEggwEbjgEmAgEbmAEbvgEsAgEKwgFZwgFfAgEIwgG4AcIBzQECAQbRAbQB0QHdBAIBBEmJAknQAgIBMknbAkniAgIBMU8VWiACASxopgFonQUCASlmpQJmtQICASd3pgF3vwICASVrVWtcAgEkhAEdiAErAgEeiQEdjQErAgEcmAGqApgB8QICARmeASG7ASwCAQtQF1QnAgEvVRdZJwIBLYQBsAKEAcYCAgEfiQGxAokBxwICAR2fASOyATMCARCzASO6ASwCAQxSqgFSyQICATBXqgFXyQICAS6pAZwBqQHDAwIBGLABVrABagIBFqUBKaUBrQICARG4AU24AZ0BAgEPtQFOtQFYAgENpQGnAqUBqgICARWlAekBpQHyAQIBE6UBigKlAY8CAgES</sads:DebugSymbol.Symbol>
   </Flowchart>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
@@ -362,43 +338,11 @@
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
       <sap2010:ViewStateData Id="Click_11" sap:VirtualizedContainerService.HintSize="200,51" />
-      <sap2010:ViewStateData Id="TypeInto_10" sap:VirtualizedContainerService.HintSize="242,51">
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-            <x:Boolean x:Key="IsPinned">False</x:Boolean>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="Assign_2" sap:VirtualizedContainerService.HintSize="242,60" />
-      <sap2010:ViewStateData Id="Sequence_47" sap:VirtualizedContainerService.HintSize="264,275">
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="DoWhile_1" sap:VirtualizedContainerService.HintSize="200,51">
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="FlowStep_40">
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <av:Point x:Key="ShapeLocation">420,214.5</av:Point>
-            <av:Size x:Key="ShapeSize">200,51</av:Size>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </sap2010:ViewStateData>
       <sap2010:ViewStateData Id="FlowStep_44">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <av:Point x:Key="ShapeLocation">420,134.5</av:Point>
             <av:Size x:Key="ShapeSize">200,51</av:Size>
-            <av:PointCollection x:Key="ConnectorLocation">520,185.5 520,214.5</av:PointCollection>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
