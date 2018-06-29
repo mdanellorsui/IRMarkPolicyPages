@@ -1,0 +1,265 @@
+﻿Page: 1 ocrText: GBA 901001 1112
+ ocrResult 1: GBA
+ ocrResult 2: 901001
+ ocrResult 3: 1112
+ ocrResult 4:  
+ ocrResult 5:  
+
+Page: 2 ocrText: g
+ ocrResult 1: g
+ ocrResult 2:  
+ ocrResult 3:  
+ ocrResult 4:  
+ ocrResult 5:  
+
+Page: 3 ocrText: Counlersugned: 61582
+GBA 900001 1012
+ ocrResult 1: Counlersugned:
+ ocrResult 2: 61582
+ ocrResult 3: GBA
+ ocrResult 4: 900001
+ ocrResult 5: 1012
+
+Page: 4 ocrText: CP 0010 1012
+GBA 900002 “05
+ ocrResult 1: CP
+ ocrResult 2: 0010
+ ocrResult 3: 1012
+ ocrResult 4: GBA
+ ocrResult 5: 900002
+
+Page: 5 ocrText: GBA 900002 “05
+ ocrResult 1: GBA
+ ocrResult 2: 900002
+ ocrResult 3: “05
+ ocrResult 4:  
+ ocrResult 5:  
+
+Page: 6 ocrText: RSG 990181211
+ ocrResult 1: RSG
+ ocrResult 2: 990181211
+ ocrResult 3:  
+ ocrResult 4:  
+ ocrResult 5:  
+
+Page: 7 ocrText: GBA 904010 0117
+ ocrResult 1: GBA
+ ocrResult 2: 904010
+ ocrResult 3: 0117
+ ocrResult 4:  
+ ocrResult 5:  
+
+Page: 8 ocrText: GBA 906005 0115
+ ocrResult 1: GBA
+ ocrResult 2: 906005
+ ocrResult 3: 0115
+ ocrResult 4:  
+ ocrResult 5:  
+
+Page: 9 ocrText: GBA 906011 0414
+ ocrResult 1: GBA
+ ocrResult 2: 906011
+ ocrResult 3: 0414
+ ocrResult 4:  
+ ocrResult 5:  
+
+Page: 10 ocrText: GBA 9060141216
+ ocrResult 1: GBA
+ ocrResult 2: 9060141216
+ ocrResult 3:  
+ ocrResult 4:  
+ ocrResult 5:  
+
+Page: 11 ocrText: GBA 909001 0407
+ ocrResult 1: GBA
+ ocrResult 2: 909001
+ ocrResult 3: 0407
+ ocrResult 4:  
+ ocrResult 5:  
+
+Page: 12 ocrText: IL 001711 98
+ ocrResult 1: IL
+ ocrResult 2: 001711
+ ocrResult 3: 98
+ ocrResult 4:  
+ ocrResult 5:  
+
+Page: 13 ocrText: IL 00 21 05 04
+ ocrResult 1: IL
+ ocrResult 2: 00
+ ocrResult 3: 21
+ ocrResult 4: 05
+ ocrResult 5: 04
+
+Page: 14 ocrText: Page 2 0t 2
+ ocrResult 1: Page
+ ocrResult 2: 2
+ ocrResult 3: 0t
+ ocrResult 4: 2
+ ocrResult 5:  
+
+Page: 15 ocrText: CONTRACT or msUn'ANCE.
+GBA100001 0513
+ ocrResult 1: CONTRACT
+ ocrResult 2: or
+ ocrResult 3: msUn'ANCE.
+ ocrResult 4: GBA100001
+ ocrResult 5: 0513
+
+Page: 16 ocrText: CG 00 010413
+ ocrResult 1: CG
+ ocrResult 2: 00
+ ocrResult 3: 010413
+ ocrResult 4:  
+ ocrResult 5:  
+
+Page: 17 ocrText: Page 2 of 16
+ ocrResult 1: Page
+ ocrResult 2: 2
+ ocrResult 3: of
+ ocrResult 4: 16
+ ocrResult 5:  
+
+Page: 18 ocrText: CG 00 010413
+ ocrResult 1: CG
+ ocrResult 2: 00
+ ocrResult 3: 010413
+ ocrResult 4:  
+ ocrResult 5:  
+
+Page: 19 ocrText: Page 4 of 16
+ ocrResult 1: Page
+ ocrResult 2: 4
+ ocrResult 3: of
+ ocrResult 4: 16
+ ocrResult 5:  
+
+Page: 20 ocrText: CG 00 010413
+ ocrResult 1: CG
+ ocrResult 2: 00
+ ocrResult 3: 010413
+ ocrResult 4:  
+ ocrResult 5:  
+
+Page: 21 ocrText: Page 6 of 16
+ ocrResult 1: Page
+ ocrResult 2: 6
+ ocrResult 3: of
+ ocrResult 4: 16
+ ocrResult 5:  
+
+Page: 22 ocrText: CG 00 010413
+ ocrResult 1: CG
+ ocrResult 2: 00
+ ocrResult 3: 010413
+ ocrResult 4:  
+ ocrResult 5:  
+
+Page: 23 ocrText: Page 8 of 16
+ ocrResult 1: Page
+ ocrResult 2: 8
+ ocrResult 3: of
+ ocrResult 4: 16
+ ocrResult 5:  
+
+Page: 24 ocrText: CG 00 010413
+ ocrResult 1: CG
+ ocrResult 2: 00
+ ocrResult 3: 010413
+ ocrResult 4:  
+ ocrResult 5:  
+
+Page: 25 ocrText: Page1Dof16
+ ocrResult 1: Page1Dof16
+ ocrResult 2:  
+ ocrResult 3:  
+ ocrResult 4:  
+ ocrResult 5:  
+
+Page: 26 ocrText: CG 00 010413
+ ocrResult 1: CG
+ ocrResult 2: 00
+ ocrResult 3: 010413
+ ocrResult 4:  
+ ocrResult 5:  
+
+Page: 27 ocrText: Page 12 of 16
+ ocrResult 1: Page
+ ocrResult 2: 12
+ ocrResult 3: of
+ ocrResult 4: 16
+ ocrResult 5:  
+
+Page: 28 ocrText: CG 00 010413
+ ocrResult 1: CG
+ ocrResult 2: 00
+ ocrResult 3: 010413
+ ocrResult 4:  
+ ocrResult 5:  
+
+Page: 29 ocrText: Page140f16
+ ocrResult 1: Page140f16
+ ocrResult 2:  
+ ocrResult 3:  
+ ocrResult 4:  
+ ocrResult 5:  
+
+Page: 30 ocrText: reconamoneu 0! (60211
+CG 00 01 04 13
+ ocrResult 1: reconamoneu
+ ocrResult 2: 0!
+ ocrResult 3: (60211
+ ocrResult 4: CG
+ ocrResult 5: 00
+
+Page: 31 ocrText: Page 16 of 16
+ ocrResult 1: Page
+ ocrResult 2: 16
+ ocrResult 3: of
+ ocrResult 4: 16
+ ocrResult 5:  
+
+Page: 32 ocrText: CG 21391093
+ ocrResult 1: CG
+ ocrResult 2: 21391093
+ ocrResult 3:  
+ ocrResult 4:  
+ ocrResult 5:  
+
+Page: 33 ocrText: CG 21 44 07 98
+ ocrResult 1: CG
+ ocrResult 2: 21
+ ocrResult 3: 44
+ ocrResult 4: 07
+ ocrResult 5: 98
+
+Page: 34 ocrText: GBA 104014 0106
+ ocrResult 1: GBA
+ ocrResult 2: 104014
+ ocrResult 3: 0106
+ ocrResult 4:  
+ ocrResult 5:  
+
+Page: 35 ocrText: GBA 106015 1106
+ ocrResult 1: GBA
+ ocrResult 2: 106015
+ ocrResult 3: 1106
+ ocrResult 4:  
+ ocrResult 5:  
+
+Page: 36 ocrText: copies of such recorc
+direct,
+GBA "16059 0113
+ ocrResult 1: copies
+ ocrResult 2: of
+ ocrResult 3: such
+ ocrResult 4: recorc
+ ocrResult 5: direct,
+
+Page: 37 ocrText: assess U‘
+GBA 106059 0113
+ ocrResult 1: assess
+ ocrResult 2: U‘
+ ocrResult 3: GBA
+ ocrResult 4: 106059
+ ocrResult 5: 0113
