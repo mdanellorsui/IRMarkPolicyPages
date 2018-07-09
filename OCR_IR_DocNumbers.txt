@@ -12,21 +12,19 @@ Page: 2 ocrText: g
  ocrResult 4:  
  ocrResult 5:  
 
-Page: 3 ocrText: Counlersugned: 61582
-GBA 900001 1012
- ocrResult 1: Counlersugned:
- ocrResult 2: 61582
- ocrResult 3: GBA
- ocrResult 4: 900001
- ocrResult 5: 1012
-
-Page: 4 ocrText: CP 0010 1012
-GBA 900002 “05
- ocrResult 1: CP
- ocrResult 2: 0010
+Page: 3 ocrText: GBA 900001 1012
+ ocrResult 1: GBA
+ ocrResult 2: 900001
  ocrResult 3: 1012
- ocrResult 4: GBA
- ocrResult 5: 900002
+ ocrResult 4:  
+ ocrResult 5:  
+
+Page: 4 ocrText: GBA 900002 “05
+ ocrResult 1: GBA
+ ocrResult 2: 900002
+ ocrResult 3: “05
+ ocrResult 4:  
+ ocrResult 5:  
 
 Page: 5 ocrText: GBA 900002 “05
  ocrResult 1: GBA
@@ -98,13 +96,12 @@ Page: 14 ocrText: Page 2 0t 2
  ocrResult 4: 2
  ocrResult 5:  
 
-Page: 15 ocrText: CONTRACT or msUn'ANCE.
-GBA100001 0513
- ocrResult 1: CONTRACT
- ocrResult 2: or
- ocrResult 3: msUn'ANCE.
- ocrResult 4: GBA100001
- ocrResult 5: 0513
+Page: 15 ocrText: GBA100001 0313
+ ocrResult 1: GBA100001
+ ocrResult 2: 0313
+ ocrResult 3:  
+ ocrResult 4:  
+ ocrResult 5:  
 
 Page: 16 ocrText: CG 00 010413
  ocrResult 1: CG
@@ -204,13 +201,12 @@ Page: 29 ocrText: Page140f16
  ocrResult 4:  
  ocrResult 5:  
 
-Page: 30 ocrText: reconamoneu 0! (60211
-CG 00 01 04 13
- ocrResult 1: reconamoneu
- ocrResult 2: 0!
- ocrResult 3: (60211
- ocrResult 4: CG
- ocrResult 5: 00
+Page: 30 ocrText: CG 00 010413
+ ocrResult 1: CG
+ ocrResult 2: 00
+ ocrResult 3: 010413
+ ocrResult 4:  
+ ocrResult 5:  
 
 Page: 31 ocrText: Page 16 of 16
  ocrResult 1: Page
@@ -247,19 +243,16 @@ Page: 35 ocrText: GBA 106015 1106
  ocrResult 4:  
  ocrResult 5:  
 
-Page: 36 ocrText: copies of such recorc
-direct,
-GBA "16059 0113
- ocrResult 1: copies
- ocrResult 2: of
- ocrResult 3: such
- ocrResult 4: recorc
- ocrResult 5: direct,
+Page: 36 ocrText: GBA 106059 0113
+ ocrResult 1: GBA
+ ocrResult 2: 106059
+ ocrResult 3: 0113
+ ocrResult 4:  
+ ocrResult 5:  
 
-Page: 37 ocrText: assess U‘
-GBA 106059 0113
- ocrResult 1: assess
- ocrResult 2: U‘
- ocrResult 3: GBA
- ocrResult 4: 106059
- ocrResult 5: 0113
+Page: 37 ocrText: GBA 106059 0113
+ ocrResult 1: GBA
+ ocrResult 2: 106059
+ ocrResult 3: 0113
+ ocrResult 4:  
+ ocrResult 5:  

@@ -63,231 +63,286 @@
     <Flowchart.Variables>
       <Variable x:TypeArguments="x:Int32" Default="36" Name="numPages" />
       <Variable x:TypeArguments="x:String" Default="VBA625835" Name="policyNumber" />
+      <Variable x:TypeArguments="scg:IEnumerable(scg:KeyValuePair(sd:Rectangle, x:String))" Name="treeViewWords" />
+      <Variable x:TypeArguments="x:String" Name="treeViewPolicyLineOcr" />
+      <Variable x:TypeArguments="ui:GenericValue" Name="treeViewPolicyLine" />
     </Flowchart.Variables>
     <Flowchart.StartNode>
-      <FlowStep x:Name="__ReferenceID8" sap2010:WorkflowViewState.IdRef="FlowStep_51">
-        <Sequence DisplayName="Output Doc Numbers" sap2010:WorkflowViewState.IdRef="Sequence_61">
-          <ui:WriteTextFile DisplayName="Write text file" FileName="OCR_IR_DocNumbers.txt" sap2010:WorkflowViewState.IdRef="WriteTextFile_2" Text="[string.Empty]" />
-          <DoWhile DisplayName="Loop Pages, output OCR" sap2010:WorkflowViewState.IdRef="DoWhile_4">
-            <DoWhile.Variables>
-              <Variable x:TypeArguments="x:Int32" Default="0" Name="counter" />
-            </DoWhile.Variables>
-            <DoWhile.Condition>[counter &lt;= numPages]</DoWhile.Condition>
-            <Sequence DisplayName="Next Page and check for dec" sap2010:WorkflowViewState.IdRef="Sequence_62">
-              <Sequence.Variables>
-                <Variable x:TypeArguments="x:Boolean" Name="commonDecExists" />
-                <Variable x:TypeArguments="x:Boolean" Name="glDecExists" />
-                <Variable x:TypeArguments="scg:IEnumerable(scg:KeyValuePair(sd:Rectangle, x:String))" Name="ocrResult" />
-                <Variable x:TypeArguments="x:String" Name="ocrText" />
-              </Sequence.Variables>
-              <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Next Policy Page" EmptyField="False" sap2010:WorkflowViewState.IdRef="TypeInto_16" SendWindowMessages="False" SimulateType="False" Text="%[k(down)]">
-                <ui:TypeInto.Target>
-                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="db0d65ccf4bd483594d442ba140c1e68" Selector="&lt;wnd app='imageright.desktop.exe' ctrlname='DesktopMainForm' /&gt;&lt;wnd cls='WindowsForms10.Window.*' title='File View' /&gt;&lt;wnd ctrlname='dockableWindow1' idx='1' /&gt;&lt;wnd ctrlname='fileHolder' /&gt;&lt;wnd ctrlname='fileTreeHolder' /&gt;&lt;wnd ctrlname='FileTreeView' /&gt;&lt;wnd ctrlname='virtualTree' /&gt;&lt;wnd ctrlname='_clipControl' /&gt;" WaitForReady="INTERACTIVE" />
-                </ui:TypeInto.Target>
-              </ui:TypeInto>
-              <ui:GetOCRText Text="{x:Null}" WordsInfo="{x:Null}" DisplayName="Get OCR text 'WindowsForms10.Window.8...'" sap2010:WorkflowViewState.IdRef="GetOCRText_6">
-                <ui:GetOCRText.OCREngine>
-                  <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd:Rectangle, x:String))">
-                    <ActivityFunc.Argument>
-                      <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
-                    </ActivityFunc.Argument>
-                    <ui:GoogleOCR FilterRegion="{x:Null}" AllowedCharacters="" DeniedCharacters="" ExtractWords="True" sap2010:WorkflowViewState.IdRef="GoogleOCR_9" Image="[Image]" Invert="False" Language="eng" Profile="Screen" Result="[ocrResult]" Scale="2" Text="[ocrText]" />
-                  </ActivityFunc>
-                </ui:GetOCRText.OCREngine>
-                <ui:GetOCRText.Target>
-                  <ui:Target Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="5f0265e45fd752708f23db4abc26d37b" Selector="&lt;wnd app='imageright.desktop.exe' ctrlname='ViewerDialog' /&gt;&lt;wnd ctrlname='ViewerControl' /&gt;&lt;wnd ctrlname='viewerPanel' /&gt;&lt;wnd ctrlname='ViewerPanel_Fill_Panel' /&gt;&lt;wnd ctrlname='ultraTabControl' /&gt;&lt;wnd ctrlname='ultraTabPageControlImage' /&gt;&lt;wnd ctrlname='AtalasoftViewerControl' /&gt;&lt;wnd ctrlname='ImagingControl' /&gt;" WaitForReady="INTERACTIVE">
-                    <ui:Target.ClippingRegion>
-                      <ui:Region Rectangle="4, 835, 161, 62" />
-                    </ui:Target.ClippingRegion>
-                  </ui:Target>
-                </ui:GetOCRText.Target>
-              </ui:GetOCRText>
-              <ui:AppendLine DisplayName="Append line" FileName="OCR_IR_DocNumbers.txt" sap2010:WorkflowViewState.IdRef="AppendLine_2" Text="[&quot;Page: &quot; + (counter + 1).ToString + &quot; ocrText: &quot; + ocrText + vbcrlf + &quot; ocrResult 1: &quot; + If( Not (ocrResult(0).value is Nothing), ocrResult(0).value, &quot; &quot;) + vbcrlf   + &quot; ocrResult 2: &quot; + If( Not (ocrResult(1).value is Nothing), ocrResult(1).value, &quot; &quot;)  + vbcrlf  + &quot; ocrResult 3: &quot; + If( Not (ocrResult(2).value is Nothing), ocrResult(2).value, &quot; &quot;) + vbcrlf  + &quot; ocrResult 4: &quot; + If( Not (ocrResult(3).value is Nothing), ocrResult(3).value, &quot; &quot;)+ vbcrlf  + &quot; ocrResult 5: &quot; + If( Not (ocrResult(4).value is Nothing), ocrResult(4).value, &quot; &quot;) + vbcrlf]" />
-              <Assign DisplayName="increment counter" sap2010:WorkflowViewState.IdRef="Assign_16">
-                <Assign.To>
-                  <OutArgument x:TypeArguments="x:Int32">[counter]</OutArgument>
-                </Assign.To>
-                <Assign.Value>
-                  <InArgument x:TypeArguments="x:Int32">[counter + 1]</InArgument>
-                </Assign.Value>
-              </Assign>
+      <FlowStep x:Name="__ReferenceID0" sap2010:WorkflowViewState.IdRef="FlowStep_13">
+        <ui:StartProcess Arguments="{x:Null}" WorkingDirectory="{x:Null}" DisplayName="Open ImageRight" FileName="&quot;C:\Program Files (x86)\ImageRight\Clients\imageright.desktop.exe&quot;" sap2010:WorkflowViewState.IdRef="StartProcess_2" />
+        <FlowStep.Next>
+          <FlowStep x:Name="__ReferenceID2" sap2010:WorkflowViewState.IdRef="FlowStep_17">
+            <Sequence DisplayName="Select File Open" sap2010:WorkflowViewState.IdRef="Sequence_16">
+              <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" Window="{x:Null}" DisplayName="Attach Window 'DesktopMa Imagerigh'" sap2010:WorkflowViewState.IdRef="WindowScope_2" InformativeScreenshot="8b624cd532ab8d995d10911b388b12db" Selector="&lt;wnd app='imageright.desktop.exe' ctrlname='DesktopMainForm' /&gt;" TimeoutMS="60000">
+                <ui:WindowScope.Body>
+                  <ActivityAction x:TypeArguments="x:Object">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                    </ActivityAction.Argument>
+                    <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                      <ui:SendHotkey DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Send hotkey 'menu bar  Toolbar'" EmptyField="False" sap2010:WorkflowViewState.IdRef="SendHotkey_2" Key="f" KeyModifiers="Alt" SendWindowMessages="False" SpecialKey="False">
+                        <ui:SendHotkey.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="a61552b663426bbcdee9aea824b39677" Selector="&lt;wnd ctrlname='_DesktopFrm_Toolbars_Dock_Area_Top' idx='2' /&gt;&lt;ctrl name='DockTop' role='grouping' /&gt;&lt;ctrl name='Toolbar' role='menu bar' /&gt;" WaitForReady="INTERACTIVE" />
+                        </ui:SendHotkey.Target>
+                      </ui:SendHotkey>
+                      <ui:SendHotkey DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Send hotkey 'menu bar  Toolbar'" EmptyField="False" sap2010:WorkflowViewState.IdRef="SendHotkey_3" Key="o" KeyModifiers="None" SendWindowMessages="False" SpecialKey="False">
+                        <ui:SendHotkey.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="a61552b663426bbcdee9aea824b39677" Selector="&lt;wnd ctrlname='_DesktopFrm_Toolbars_Dock_Area_Top' idx='2' /&gt;&lt;ctrl name='DockTop' role='grouping' /&gt;&lt;ctrl name='Toolbar' role='menu bar' /&gt;" WaitForReady="INTERACTIVE" />
+                        </ui:SendHotkey.Target>
+                      </ui:SendHotkey>
+                    </Sequence>
+                  </ActivityAction>
+                </ui:WindowScope.Body>
+              </ui:WindowScope>
             </Sequence>
-          </DoWhile>
-        </Sequence>
+            <FlowStep.Next>
+              <FlowStep x:Name="__ReferenceID3" sap2010:WorkflowViewState.IdRef="FlowStep_19">
+                <Sequence DisplayName="Open IR File" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="x:String" Name="variable1" />
+                  </Sequence.Variables>
+                  <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Enter File Number" EmptyField="False" sap2010:WorkflowViewState.IdRef="TypeInto_3" SendWindowMessages="False" SimulateType="False" Text="[policyNumber]">
+                    <ui:TypeInto.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="25347118bd66ce949cca9ec17560e056" Selector="&lt;wnd app='imageright.desktop.exe' ctrlname='SearchForm' /&gt;&lt;wnd ctrlname='tabControlMain' /&gt;&lt;wnd ctrlname='OpenFileUserControl' /&gt;&lt;wnd ctrlname='splitContainer1' /&gt;&lt;wnd ctrlname='ParentPanel' /&gt;&lt;wnd ctrlname='panFileNumber' /&gt;&lt;wnd ctrlname='_editorMultipartFileNumber' /&gt;&lt;wnd ctrlname='controlHolder' /&gt;&lt;wnd ctrlname='tableLayoutPanel1' /&gt;&lt;wnd ctrlname='editor_MultipartFileNumberFieldElement1' /&gt;&lt;wnd ctrlname='textBoxNumberControl' /&gt;" WaitForReady="INTERACTIVE" />
+                    </ui:TypeInto.Target>
+                  </ui:TypeInto>
+                  <ui:Click DelayBefore="{x:Null}" ClickType="CLICK_SINGLE" DelayMS="5000" DisplayName="Click 'WindowsForms10.Window.8...'" sap2010:WorkflowViewState.IdRef="Click_7" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+                    <ui:Click.CursorPosition>
+                      <ui:CursorPosition Position="Center">
+                        <ui:CursorPosition.OffsetX>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:CursorPosition.OffsetX>
+                        <ui:CursorPosition.OffsetY>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:CursorPosition.OffsetY>
+                      </ui:CursorPosition>
+                    </ui:Click.CursorPosition>
+                    <ui:Click.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="317336e2b4f7f3ae90e027528cc2e684" Selector="&lt;wnd app='imageright.desktop.exe' ctrlname='SearchForm' /&gt;&lt;wnd ctrlname='pnlSearchOptions' idx='2' /&gt;&lt;wnd ctrlname='btnSearchStop' /&gt;" WaitForReady="INTERACTIVE" />
+                    </ui:Click.Target>
+                  </ui:Click>
+                </Sequence>
+                <FlowStep.Next>
+                  <FlowStep x:Name="__ReferenceID4" sap2010:WorkflowViewState.IdRef="FlowStep_29">
+                    <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Expand IR File" sap2010:WorkflowViewState.IdRef="WindowScope_6" InformativeScreenshot="3cf7116843aea1306432c44a88cf8be7" Selector="&lt;wnd app='imageright.desktop.exe' ctrlname='DesktopMainForm' /&gt;&lt;wnd cls='WindowsForms10.Window.*' title='File View' /&gt;">
+                      <ui:WindowScope.Body>
+                        <ActivityAction x:TypeArguments="x:Object">
+                          <ActivityAction.Argument>
+                            <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                          </ActivityAction.Argument>
+                          <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                            <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Expand Policy Info" EmptyField="False" sap2010:WorkflowViewState.IdRef="TypeInto_4" SendWindowMessages="False" SimulateType="False" Text="%[k(down)][k(right)]">
+                              <ui:TypeInto.Target>
+                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" WaitForReady="INTERACTIVE" />
+                              </ui:TypeInto.Target>
+                            </ui:TypeInto>
+                            <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Expand First Policy" EmptyField="False" sap2010:WorkflowViewState.IdRef="TypeInto_6" SendWindowMessages="False" SimulateType="False" Text="%[k(down)][k(right)]">
+                              <ui:TypeInto.Target>
+                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" WaitForReady="INTERACTIVE" />
+                              </ui:TypeInto.Target>
+                            </ui:TypeInto>
+                          </Sequence>
+                        </ActivityAction>
+                      </ui:WindowScope.Body>
+                    </ui:WindowScope>
+                    <FlowStep.Next>
+                      <FlowStep x:Name="__ReferenceID9" sap2010:WorkflowViewState.IdRef="FlowStep_53">
+                        <ui:CommentOut sap2010:WorkflowViewState.IdRef="CommentOut_2">
+                          <ui:CommentOut.Body>
+                            <Sequence DisplayName="Ignored Activities">
+                              <Sequence DisplayName="OCR Get Policy Page Count" sap2010:WorkflowViewState.IdRef="Sequence_64">
+                                <Sequence.Variables>
+                                  <Variable x:TypeArguments="x:String" Name="getFileText" />
+                                  <Variable x:TypeArguments="x:String" Name="getPolicyText" />
+                                </Sequence.Variables>
+                                <ui:AnchorBase AnchorPosition="Left" DisplayName="Scroll - Page Up" sap2010:WorkflowViewState.IdRef="AnchorBase_2">
+                                  <ui:AnchorBase.Action>
+                                    <ActivityAction x:TypeArguments="ui:Anchor">
+                                      <ActivityAction.Argument>
+                                        <DelegateInArgument x:TypeArguments="ui:Anchor" Name="ContextAnchor" />
+                                      </ActivityAction.Argument>
+                                      <ui:SendHotkey DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Action Send hotkey 'WindowsForms10.Window.8...'" EmptyField="False" sap2010:WorkflowViewState.IdRef="SendHotkey_25" Key="pgup" KeyModifiers="None" SendWindowMessages="False" SpecialKey="True">
+                                        <ui:SendHotkey.Target>
+                                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="25aaf29e083b68a3d9780fc2a641fbcb" Selector="&lt;wnd /&gt;" WaitForReady="INTERACTIVE" />
+                                        </ui:SendHotkey.Target>
+                                      </ui:SendHotkey>
+                                    </ActivityAction>
+                                  </ui:AnchorBase.Action>
+                                  <ui:AnchorBase.AnchorProvider>
+                                    <ui:WaitUiElementAppear FoundElement="{x:Null}" DisplayName="Anchor Find Element 'WindowsForms10.Window.8...'" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_2" WaitActive="False" WaitVisible="False">
+                                      <ui:WaitUiElementAppear.Target>
+                                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="25aaf29e083b68a3d9780fc2a641fbcb" Selector="&lt;wnd app='imageright.desktop.exe' ctrlname='DesktopMainForm' /&gt;&lt;wnd cls='WindowsForms10.Window.*' title='File View' /&gt;&lt;wnd ctrlname='dockableWindow1' idx='1' /&gt;&lt;wnd ctrlname='fileHolder' /&gt;&lt;wnd ctrlname='fileTreeHolder' /&gt;&lt;wnd ctrlname='FileTreeView' /&gt;&lt;wnd ctrlname='virtualTree' /&gt;&lt;wnd ctrlname='_clipControl' /&gt;" WaitForReady="INTERACTIVE" />
+                                      </ui:WaitUiElementAppear.Target>
+                                    </ui:WaitUiElementAppear>
+                                  </ui:AnchorBase.AnchorProvider>
+                                </ui:AnchorBase>
+                                <ui:ClickOCRText ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click OCR Policy" sap2010:WorkflowViewState.IdRef="ClickOCRText_3" KeyModifiers="None" MouseButton="BTN_LEFT" Occurrence="1" SendWindowMessages="False" Text="Policy - Policy">
+                                  <ui:ClickOCRText.CursorPosition>
+                                    <ui:CursorPosition Position="Center">
+                                      <ui:CursorPosition.OffsetX>
+                                        <InArgument x:TypeArguments="x:Int32" />
+                                      </ui:CursorPosition.OffsetX>
+                                      <ui:CursorPosition.OffsetY>
+                                        <InArgument x:TypeArguments="x:Int32" />
+                                      </ui:CursorPosition.OffsetY>
+                                    </ui:CursorPosition>
+                                  </ui:ClickOCRText.CursorPosition>
+                                  <ui:ClickOCRText.OCREngine>
+                                    <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd:Rectangle, x:String))">
+                                      <ActivityFunc.Argument>
+                                        <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+                                      </ActivityFunc.Argument>
+                                      <ui:GoogleOCR FilterRegion="{x:Null}" AllowedCharacters="" DeniedCharacters="" ExtractWords="True" sap2010:WorkflowViewState.IdRef="GoogleOCR_12" Image="[Image]" Invert="False" Language="eng" Profile="Screen" Scale="2" Text="[getPolicyText]" />
+                                    </ActivityFunc>
+                                  </ui:ClickOCRText.OCREngine>
+                                  <ui:ClickOCRText.Target>
+                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="8588ba01532c819cad61f20fd22f4488" Selector="&lt;wnd app='imageright.desktop.exe' ctrlname='DesktopMainForm' /&gt;&lt;wnd cls='WindowsForms10.Window.*' title='File View' /&gt;&lt;wnd ctrlname='dockableWindow1' idx='1' /&gt;&lt;wnd ctrlname='fileHolder' /&gt;&lt;wnd ctrlname='fileTreeHolder' /&gt;&lt;wnd ctrlname='FileTreeView' /&gt;&lt;wnd ctrlname='virtualTree' /&gt;&lt;wnd ctrlname='_clipControl' /&gt;" WaitForReady="INTERACTIVE" />
+                                  </ui:ClickOCRText.Target>
+                                </ui:ClickOCRText>
+                              </Sequence>
+                            </Sequence>
+                          </ui:CommentOut.Body>
+                        </ui:CommentOut>
+                        <FlowStep.Next>
+                          <FlowStep x:Name="__ReferenceID5" sap2010:WorkflowViewState.IdRef="FlowStep_37">
+                            <Sequence DisplayName="Get Number of Pages" sap2010:WorkflowViewState.IdRef="Sequence_38">
+                              <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window 'DesktopMa Imagerigh'" sap2010:WorkflowViewState.IdRef="WindowScope_8" InformativeScreenshot="a220333811a0e53434682dd51853306b" Selector="&lt;wnd app='imageright.desktop.exe' ctrlname='DesktopMainForm' /&gt;">
+                                <ui:WindowScope.Body>
+                                  <ActivityAction x:TypeArguments="x:Object">
+                                    <ActivityAction.Argument>
+                                      <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                                    </ActivityAction.Argument>
+                                    <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_37">
+                                      <ui:GetOCRText WordsInfo="{x:Null}" DisplayName="Get OCR text 'WindowsForms10.Window.8...'" sap2010:WorkflowViewState.IdRef="GetOCRText_4">
+                                        <ui:GetOCRText.OCREngine>
+                                          <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd:Rectangle, x:String))">
+                                            <ActivityFunc.Argument>
+                                              <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+                                            </ActivityFunc.Argument>
+                                            <ui:GoogleOCR FilterRegion="{x:Null}" AllowedCharacters="" DeniedCharacters="" DisplayName="Google OCR" ExtractWords="False" sap2010:WorkflowViewState.IdRef="GoogleOCR_1" Image="[Image]" Invert="True" Language="eng" Profile="Screen" Result="[treeViewWords]" Scale="3" Text="[treeViewPolicyLineOcr]" />
+                                          </ActivityFunc>
+                                        </ui:GetOCRText.OCREngine>
+                                        <ui:GetOCRText.Target>
+                                          <ui:Target Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="e5fe32890bb581ba36fcdbe004d85fdd" Selector="&lt;wnd cls='WindowsForms10.Window.*' title='File View' /&gt;&lt;wnd ctrlname='dockableWindow1' idx='1' /&gt;&lt;wnd ctrlname='fileHolder' /&gt;&lt;wnd ctrlname='fileTreeHolder' /&gt;&lt;wnd ctrlname='FileTreeView' /&gt;&lt;wnd ctrlname='virtualTree' /&gt;&lt;wnd ctrlname='_clipControl' /&gt;" WaitForReady="INTERACTIVE">
+                                            <ui:Target.ClippingRegion>
+                                              <ui:Region Rectangle="75, 30, 226, 30" />
+                                            </ui:Target.ClippingRegion>
+                                          </ui:Target>
+                                        </ui:GetOCRText.Target>
+                                        <ui:GetOCRText.Text>
+                                          <OutArgument x:TypeArguments="ui:GenericValue">[treeViewPolicyLine]</OutArgument>
+                                        </ui:GetOCRText.Text>
+                                      </ui:GetOCRText>
+                                      <Assign sap2010:WorkflowViewState.IdRef="Assign_1">
+                                        <Assign.To>
+                                          <OutArgument x:TypeArguments="x:Int32">[numPages]</OutArgument>
+                                        </Assign.To>
+                                        <Assign.Value>
+                                          <InArgument x:TypeArguments="x:Int32">[Convert.ToInt32(Mid(treeViewPolicyLine, InStr(treeViewPolicyLine, "(") +1, 2))]</InArgument>
+                                        </Assign.Value>
+                                      </Assign>
+                                    </Sequence>
+                                  </ActivityAction>
+                                </ui:WindowScope.Body>
+                              </ui:WindowScope>
+                            </Sequence>
+                            <FlowStep.Next>
+                              <FlowStep x:Name="__ReferenceID6" sap2010:WorkflowViewState.IdRef="FlowStep_38">
+                                <ui:CommentOut sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                                  <ui:CommentOut.Body>
+                                    <Sequence DisplayName="Ignored Activities" sap2010:WorkflowViewState.IdRef="Sequence_63">
+                                      <ui:MessageBox ChosenButton="{x:Null}" Buttons="Ok" Caption="Info" DisplayName="Info: Number of Pages" sap2010:WorkflowViewState.IdRef="MessageBox_3" Text="[numPages.ToString]" TopMost="True" />
+                                    </Sequence>
+                                  </ui:CommentOut.Body>
+                                </ui:CommentOut>
+                                <FlowStep.Next>
+                                  <FlowStep x:Name="__ReferenceID7" sap2010:WorkflowViewState.IdRef="FlowStep_44">
+                                    <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click push button  Best Fit" sap2010:WorkflowViewState.IdRef="Click_11" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+                                      <ui:Click.CursorPosition>
+                                        <ui:CursorPosition Position="Center">
+                                          <ui:CursorPosition.OffsetX>
+                                            <InArgument x:TypeArguments="x:Int32" />
+                                          </ui:CursorPosition.OffsetX>
+                                          <ui:CursorPosition.OffsetY>
+                                            <InArgument x:TypeArguments="x:Int32" />
+                                          </ui:CursorPosition.OffsetY>
+                                        </ui:CursorPosition>
+                                      </ui:Click.CursorPosition>
+                                      <ui:Click.Target>
+                                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="fc8f200649a6255dee76e24c8a09b46f" Selector="&lt;wnd app='imageright.desktop.exe' ctrlname='ViewerDialog' /&gt;&lt;wnd ctrlname='ViewerControl' /&gt;&lt;wnd ctrlname='viewerPanel' /&gt;&lt;wnd ctrlname='ViewerPanel_Fill_Panel' /&gt;&lt;wnd ctrlname='ultraTabControl' /&gt;&lt;wnd ctrlname='ultraTabPageControlImage' /&gt;&lt;wnd ctrlname='AtalasoftViewerControl' /&gt;&lt;wnd cls='WindowsForms10.Window.*' idx='5' /&gt;&lt;ctrl name='Best Fit' role='push button' /&gt;" WaitForReady="INTERACTIVE" />
+                                      </ui:Click.Target>
+                                    </ui:Click>
+                                    <FlowStep.Next>
+                                      <FlowStep x:Name="__ReferenceID8" sap2010:WorkflowViewState.IdRef="FlowStep_51">
+                                        <Sequence DisplayName="Output Doc Numbers" sap2010:WorkflowViewState.IdRef="Sequence_61">
+                                          <ui:WriteTextFile DisplayName="Write text file" FileName="OCR_IR_DocNumbers.txt" sap2010:WorkflowViewState.IdRef="WriteTextFile_2" Text="[string.Empty]" />
+                                          <ui:AppendLine DisplayName="Append line" FileName="OCR_IR_DocNumbers.txt" sap2010:WorkflowViewState.IdRef="AppendLine_3" Text="[&quot;Tree: &quot; + &quot; ocrTreeLine: &quot; + treeViewPolicyLineOcr + vbcrlf + &quot; ocrWord 1: &quot; + If( Not (treeViewWords(0).value is Nothing), treeViewWords(0).value, &quot; &quot;) + vbcrlf   + &quot; ocrWord 2: &quot; + If( Not (treeViewWords(1).value is Nothing), treeViewWords(1).value, &quot; &quot;)  + vbcrlf  + &quot; ocrWord 3: &quot; + If( Not (treeViewWords(2).value is Nothing), treeViewWords(2).value, &quot; &quot;) + vbcrlf  + &quot; ocrWord 4: &quot; + If( Not (treeViewWords(3).value is Nothing), treeViewWords(3).value, &quot; &quot;)+ vbcrlf  + &quot; ocrWord 5: &quot; + If( Not (treeViewWords(4).value is Nothing), treeViewWords(4).value, &quot; &quot;) + vbcrlf]" />
+                                          <DoWhile DisplayName="Loop Pages, output OCR" sap2010:WorkflowViewState.IdRef="DoWhile_4">
+                                            <DoWhile.Variables>
+                                              <Variable x:TypeArguments="x:Int32" Default="0" Name="counter" />
+                                            </DoWhile.Variables>
+                                            <DoWhile.Condition>[counter &lt;= numPages]</DoWhile.Condition>
+                                            <Sequence DisplayName="Next Page and check for dec" sap2010:WorkflowViewState.IdRef="Sequence_62">
+                                              <Sequence.Variables>
+                                                <Variable x:TypeArguments="x:Boolean" Name="commonDecExists" />
+                                                <Variable x:TypeArguments="x:Boolean" Name="glDecExists" />
+                                                <Variable x:TypeArguments="scg:IEnumerable(scg:KeyValuePair(sd:Rectangle, x:String))" Name="ocrResult" />
+                                                <Variable x:TypeArguments="x:String" Name="ocrText" />
+                                              </Sequence.Variables>
+                                              <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Next Policy Page" EmptyField="False" sap2010:WorkflowViewState.IdRef="TypeInto_16" SendWindowMessages="False" SimulateType="False" Text="%[k(down)]">
+                                                <ui:TypeInto.Target>
+                                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="db0d65ccf4bd483594d442ba140c1e68" Selector="&lt;wnd app='imageright.desktop.exe' ctrlname='DesktopMainForm' /&gt;&lt;wnd cls='WindowsForms10.Window.*' title='File View' /&gt;&lt;wnd ctrlname='dockableWindow1' idx='1' /&gt;&lt;wnd ctrlname='fileHolder' /&gt;&lt;wnd ctrlname='fileTreeHolder' /&gt;&lt;wnd ctrlname='FileTreeView' /&gt;&lt;wnd ctrlname='virtualTree' /&gt;&lt;wnd ctrlname='_clipControl' /&gt;" WaitForReady="INTERACTIVE" />
+                                                </ui:TypeInto.Target>
+                                              </ui:TypeInto>
+                                              <ui:GetOCRText Text="{x:Null}" WordsInfo="{x:Null}" DisplayName="Get OCR text 'WindowsForms10.Window.8...'" sap2010:WorkflowViewState.IdRef="GetOCRText_6">
+                                                <ui:GetOCRText.OCREngine>
+                                                  <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd:Rectangle, x:String))">
+                                                    <ActivityFunc.Argument>
+                                                      <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+                                                    </ActivityFunc.Argument>
+                                                    <ui:GoogleOCR FilterRegion="{x:Null}" AllowedCharacters="" DeniedCharacters="" ExtractWords="True" sap2010:WorkflowViewState.IdRef="GoogleOCR_9" Image="[Image]" Invert="False" Language="eng" Profile="Screen" Result="[ocrResult]" Scale="2" Text="[ocrText]" />
+                                                  </ActivityFunc>
+                                                </ui:GetOCRText.OCREngine>
+                                                <ui:GetOCRText.Target>
+                                                  <ui:Target Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="5f0265e45fd752708f23db4abc26d37b" Selector="&lt;wnd app='imageright.desktop.exe' ctrlname='ViewerDialog' /&gt;&lt;wnd ctrlname='ViewerControl' /&gt;&lt;wnd ctrlname='viewerPanel' /&gt;&lt;wnd ctrlname='ViewerPanel_Fill_Panel' /&gt;&lt;wnd ctrlname='ultraTabControl' /&gt;&lt;wnd ctrlname='ultraTabPageControlImage' /&gt;&lt;wnd ctrlname='AtalasoftViewerControl' /&gt;&lt;wnd ctrlname='ImagingControl' /&gt;" WaitForReady="INTERACTIVE">
+                                                    <ui:Target.ClippingRegion>
+                                                      <ui:Region Rectangle="4, 835, 161, 62" />
+                                                    </ui:Target.ClippingRegion>
+                                                  </ui:Target>
+                                                </ui:GetOCRText.Target>
+                                              </ui:GetOCRText>
+                                              <ui:AppendLine DisplayName="Append line" FileName="OCR_IR_DocNumbers.txt" sap2010:WorkflowViewState.IdRef="AppendLine_2" Text="[&quot;Page: &quot; + (counter + 1).ToString + &quot; ocrText: &quot; + ocrText + vbcrlf + &quot; ocrResult 1: &quot; + If( Not (ocrResult(0).value is Nothing), ocrResult(0).value, &quot; &quot;) + vbcrlf   + &quot; ocrResult 2: &quot; + If( Not (ocrResult(1).value is Nothing), ocrResult(1).value, &quot; &quot;)  + vbcrlf  + &quot; ocrResult 3: &quot; + If( Not (ocrResult(2).value is Nothing), ocrResult(2).value, &quot; &quot;) + vbcrlf  + &quot; ocrResult 4: &quot; + If( Not (ocrResult(3).value is Nothing), ocrResult(3).value, &quot; &quot;)+ vbcrlf  + &quot; ocrResult 5: &quot; + If( Not (ocrResult(4).value is Nothing), ocrResult(4).value, &quot; &quot;) + vbcrlf]" />
+                                              <Assign DisplayName="increment counter" sap2010:WorkflowViewState.IdRef="Assign_16">
+                                                <Assign.To>
+                                                  <OutArgument x:TypeArguments="x:Int32">[counter]</OutArgument>
+                                                </Assign.To>
+                                                <Assign.Value>
+                                                  <InArgument x:TypeArguments="x:Int32">[counter + 1]</InArgument>
+                                                </Assign.Value>
+                                              </Assign>
+                                            </Sequence>
+                                          </DoWhile>
+                                        </Sequence>
+                                      </FlowStep>
+                                    </FlowStep.Next>
+                                  </FlowStep>
+                                </FlowStep.Next>
+                              </FlowStep>
+                            </FlowStep.Next>
+                          </FlowStep>
+                        </FlowStep.Next>
+                      </FlowStep>
+                    </FlowStep.Next>
+                  </FlowStep>
+                </FlowStep.Next>
+              </FlowStep>
+            </FlowStep.Next>
+          </FlowStep>
+        </FlowStep.Next>
       </FlowStep>
     </Flowchart.StartNode>
-    <FlowStep sap2010:WorkflowViewState.IdRef="FlowStep_13">
-      <ui:StartProcess Arguments="{x:Null}" WorkingDirectory="{x:Null}" DisplayName="Open ImageRight" FileName="&quot;C:\Program Files (x86)\ImageRight\Clients\imageright.desktop.exe&quot;" sap2010:WorkflowViewState.IdRef="StartProcess_2" />
-      <FlowStep.Next>
-        <FlowStep x:Name="__ReferenceID1" sap2010:WorkflowViewState.IdRef="FlowStep_17">
-          <Sequence DisplayName="Select File Open" sap2010:WorkflowViewState.IdRef="Sequence_16">
-            <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" Window="{x:Null}" DisplayName="Attach Window 'DesktopMa Imagerigh'" sap2010:WorkflowViewState.IdRef="WindowScope_2" InformativeScreenshot="8b624cd532ab8d995d10911b388b12db" Selector="&lt;wnd app='imageright.desktop.exe' ctrlname='DesktopMainForm' /&gt;" TimeoutMS="60000">
-              <ui:WindowScope.Body>
-                <ActivityAction x:TypeArguments="x:Object">
-                  <ActivityAction.Argument>
-                    <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
-                  </ActivityAction.Argument>
-                  <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_15">
-                    <ui:SendHotkey DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Send hotkey 'menu bar  Toolbar'" EmptyField="False" sap2010:WorkflowViewState.IdRef="SendHotkey_2" Key="f" KeyModifiers="Alt" SendWindowMessages="False" SpecialKey="False">
-                      <ui:SendHotkey.Target>
-                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="a61552b663426bbcdee9aea824b39677" Selector="&lt;wnd ctrlname='_DesktopFrm_Toolbars_Dock_Area_Top' idx='2' /&gt;&lt;ctrl name='DockTop' role='grouping' /&gt;&lt;ctrl name='Toolbar' role='menu bar' /&gt;" WaitForReady="INTERACTIVE" />
-                      </ui:SendHotkey.Target>
-                    </ui:SendHotkey>
-                    <ui:SendHotkey DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Send hotkey 'menu bar  Toolbar'" EmptyField="False" sap2010:WorkflowViewState.IdRef="SendHotkey_3" Key="o" KeyModifiers="None" SendWindowMessages="False" SpecialKey="False">
-                      <ui:SendHotkey.Target>
-                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="a61552b663426bbcdee9aea824b39677" Selector="&lt;wnd ctrlname='_DesktopFrm_Toolbars_Dock_Area_Top' idx='2' /&gt;&lt;ctrl name='DockTop' role='grouping' /&gt;&lt;ctrl name='Toolbar' role='menu bar' /&gt;" WaitForReady="INTERACTIVE" />
-                      </ui:SendHotkey.Target>
-                    </ui:SendHotkey>
-                  </Sequence>
-                </ActivityAction>
-              </ui:WindowScope.Body>
-            </ui:WindowScope>
-          </Sequence>
-          <FlowStep.Next>
-            <FlowStep x:Name="__ReferenceID2" sap2010:WorkflowViewState.IdRef="FlowStep_19">
-              <Sequence DisplayName="Open IR File" sap2010:WorkflowViewState.IdRef="Sequence_20">
-                <Sequence.Variables>
-                  <Variable x:TypeArguments="x:String" Name="variable1" />
-                </Sequence.Variables>
-                <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Enter File Number" EmptyField="False" sap2010:WorkflowViewState.IdRef="TypeInto_3" SendWindowMessages="False" SimulateType="False" Text="[policyNumber]">
-                  <ui:TypeInto.Target>
-                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="25347118bd66ce949cca9ec17560e056" Selector="&lt;wnd app='imageright.desktop.exe' ctrlname='SearchForm' /&gt;&lt;wnd ctrlname='tabControlMain' /&gt;&lt;wnd ctrlname='OpenFileUserControl' /&gt;&lt;wnd ctrlname='splitContainer1' /&gt;&lt;wnd ctrlname='ParentPanel' /&gt;&lt;wnd ctrlname='panFileNumber' /&gt;&lt;wnd ctrlname='_editorMultipartFileNumber' /&gt;&lt;wnd ctrlname='controlHolder' /&gt;&lt;wnd ctrlname='tableLayoutPanel1' /&gt;&lt;wnd ctrlname='editor_MultipartFileNumberFieldElement1' /&gt;&lt;wnd ctrlname='textBoxNumberControl' /&gt;" WaitForReady="INTERACTIVE" />
-                  </ui:TypeInto.Target>
-                </ui:TypeInto>
-                <ui:Click DelayBefore="{x:Null}" ClickType="CLICK_SINGLE" DelayMS="5000" DisplayName="Click 'WindowsForms10.Window.8...'" sap2010:WorkflowViewState.IdRef="Click_7" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
-                  <ui:Click.CursorPosition>
-                    <ui:CursorPosition Position="Center">
-                      <ui:CursorPosition.OffsetX>
-                        <InArgument x:TypeArguments="x:Int32" />
-                      </ui:CursorPosition.OffsetX>
-                      <ui:CursorPosition.OffsetY>
-                        <InArgument x:TypeArguments="x:Int32" />
-                      </ui:CursorPosition.OffsetY>
-                    </ui:CursorPosition>
-                  </ui:Click.CursorPosition>
-                  <ui:Click.Target>
-                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="317336e2b4f7f3ae90e027528cc2e684" Selector="&lt;wnd app='imageright.desktop.exe' ctrlname='SearchForm' /&gt;&lt;wnd ctrlname='pnlSearchOptions' idx='2' /&gt;&lt;wnd ctrlname='btnSearchStop' /&gt;" WaitForReady="INTERACTIVE" />
-                  </ui:Click.Target>
-                </ui:Click>
-              </Sequence>
-              <FlowStep.Next>
-                <FlowStep x:Name="__ReferenceID3" sap2010:WorkflowViewState.IdRef="FlowStep_29">
-                  <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Expand IR File" sap2010:WorkflowViewState.IdRef="WindowScope_6" InformativeScreenshot="3cf7116843aea1306432c44a88cf8be7" Selector="&lt;wnd app='imageright.desktop.exe' ctrlname='DesktopMainForm' /&gt;&lt;wnd cls='WindowsForms10.Window.*' title='File View' /&gt;">
-                    <ui:WindowScope.Body>
-                      <ActivityAction x:TypeArguments="x:Object">
-                        <ActivityAction.Argument>
-                          <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
-                        </ActivityAction.Argument>
-                        <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_31">
-                          <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Expand Policy Info" EmptyField="False" sap2010:WorkflowViewState.IdRef="TypeInto_4" SendWindowMessages="False" SimulateType="False" Text="%[k(down)][k(right)]">
-                            <ui:TypeInto.Target>
-                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" WaitForReady="INTERACTIVE" />
-                            </ui:TypeInto.Target>
-                          </ui:TypeInto>
-                          <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Expand First Policy" EmptyField="False" sap2010:WorkflowViewState.IdRef="TypeInto_6" SendWindowMessages="False" SimulateType="False" Text="%[k(down)][k(right)]">
-                            <ui:TypeInto.Target>
-                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" WaitForReady="INTERACTIVE" />
-                            </ui:TypeInto.Target>
-                          </ui:TypeInto>
-                        </Sequence>
-                      </ActivityAction>
-                    </ui:WindowScope.Body>
-                  </ui:WindowScope>
-                  <FlowStep.Next>
-                    <FlowStep x:Name="__ReferenceID7" sap2010:WorkflowViewState.IdRef="FlowStep_49">
-                      <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="scroll IR file tree up" EmptyField="False" sap2010:WorkflowViewState.IdRef="TypeInto_14" SendWindowMessages="False" SimulateType="False" Text="%[k(up)] [k(up)] [k(up)]">
-                        <ui:TypeInto.Target>
-                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="846aa653fd833509dea0607204cf8f74" Selector="&lt;wnd app='imageright.desktop.exe' ctrlname='DesktopMainForm' /&gt;&lt;wnd cls='WindowsForms10.Window.*' title='File View' /&gt;&lt;wnd ctrlname='dockableWindow1' idx='1' /&gt;&lt;wnd ctrlname='fileHolder' /&gt;&lt;wnd ctrlname='fileTreeHolder' /&gt;&lt;wnd ctrlname='FileTreeView' /&gt;&lt;wnd ctrlname='virtualTree' /&gt;&lt;wnd ctrlname='_clipControl' /&gt;" WaitForReady="INTERACTIVE" />
-                        </ui:TypeInto.Target>
-                      </ui:TypeInto>
-                      <FlowStep.Next>
-                        <FlowStep x:Name="__ReferenceID4" sap2010:WorkflowViewState.IdRef="FlowStep_37">
-                          <Sequence DisplayName="Get Number of Pages" sap2010:WorkflowViewState.IdRef="Sequence_38">
-                            <Sequence.Variables>
-                              <Variable x:TypeArguments="ui:GenericValue" Name="treeViewPolicyLine" />
-                            </Sequence.Variables>
-                            <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window 'DesktopMa Imagerigh'" sap2010:WorkflowViewState.IdRef="WindowScope_8" InformativeScreenshot="a220333811a0e53434682dd51853306b" Selector="&lt;wnd app='imageright.desktop.exe' ctrlname='DesktopMainForm' /&gt;">
-                              <ui:WindowScope.Body>
-                                <ActivityAction x:TypeArguments="x:Object">
-                                  <ActivityAction.Argument>
-                                    <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
-                                  </ActivityAction.Argument>
-                                  <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_37">
-                                    <ui:GetOCRText WordsInfo="{x:Null}" DisplayName="Get OCR text 'WindowsForms10.Window.8...'" sap2010:WorkflowViewState.IdRef="GetOCRText_4">
-                                      <ui:GetOCRText.OCREngine>
-                                        <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd:Rectangle, x:String))">
-                                          <ActivityFunc.Argument>
-                                            <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
-                                          </ActivityFunc.Argument>
-                                          <ui:GoogleOCR FilterRegion="{x:Null}" Text="{x:Null}" AllowedCharacters="" DeniedCharacters="" DisplayName="Google OCR" ExtractWords="True" sap2010:WorkflowViewState.IdRef="GoogleOCR_1" Image="[Image]" Invert="True" Language="eng" Profile="Screen" Scale="3" />
-                                        </ActivityFunc>
-                                      </ui:GetOCRText.OCREngine>
-                                      <ui:GetOCRText.Target>
-                                        <ui:Target Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="e5fe32890bb581ba36fcdbe004d85fdd" Selector="&lt;wnd cls='WindowsForms10.Window.*' title='File View' /&gt;&lt;wnd ctrlname='dockableWindow1' idx='1' /&gt;&lt;wnd ctrlname='fileHolder' /&gt;&lt;wnd ctrlname='fileTreeHolder' /&gt;&lt;wnd ctrlname='FileTreeView' /&gt;&lt;wnd ctrlname='virtualTree' /&gt;&lt;wnd ctrlname='_clipControl' /&gt;" WaitForReady="INTERACTIVE">
-                                          <ui:Target.ClippingRegion>
-                                            <ui:Region Rectangle="75, 30, 226, 30" />
-                                          </ui:Target.ClippingRegion>
-                                        </ui:Target>
-                                      </ui:GetOCRText.Target>
-                                      <ui:GetOCRText.Text>
-                                        <OutArgument x:TypeArguments="ui:GenericValue">[treeViewPolicyLine]</OutArgument>
-                                      </ui:GetOCRText.Text>
-                                    </ui:GetOCRText>
-                                    <Assign sap2010:WorkflowViewState.IdRef="Assign_1">
-                                      <Assign.To>
-                                        <OutArgument x:TypeArguments="x:Int32">[numPages]</OutArgument>
-                                      </Assign.To>
-                                      <Assign.Value>
-                                        <InArgument x:TypeArguments="x:Int32">[Convert.ToInt32(Mid(treeViewPolicyLine, InStr(treeViewPolicyLine, "(") +1, 2))]</InArgument>
-                                      </Assign.Value>
-                                    </Assign>
-                                  </Sequence>
-                                </ActivityAction>
-                              </ui:WindowScope.Body>
-                            </ui:WindowScope>
-                          </Sequence>
-                          <FlowStep.Next>
-                            <FlowStep x:Name="__ReferenceID5" sap2010:WorkflowViewState.IdRef="FlowStep_38">
-                              <ui:CommentOut sap2010:WorkflowViewState.IdRef="CommentOut_1">
-                                <ui:CommentOut.Body>
-                                  <Sequence DisplayName="Ignored Activities">
-                                    <ui:MessageBox ChosenButton="{x:Null}" Buttons="Ok" Caption="Info" DisplayName="Info: Number of Pages" sap2010:WorkflowViewState.IdRef="MessageBox_3" Text="[numPages.ToString]" TopMost="True" />
-                                  </Sequence>
-                                </ui:CommentOut.Body>
-                              </ui:CommentOut>
-                              <FlowStep.Next>
-                                <FlowStep x:Name="__ReferenceID6" sap2010:WorkflowViewState.IdRef="FlowStep_44">
-                                  <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click push button  Best Fit" sap2010:WorkflowViewState.IdRef="Click_11" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
-                                    <ui:Click.CursorPosition>
-                                      <ui:CursorPosition Position="Center">
-                                        <ui:CursorPosition.OffsetX>
-                                          <InArgument x:TypeArguments="x:Int32" />
-                                        </ui:CursorPosition.OffsetX>
-                                        <ui:CursorPosition.OffsetY>
-                                          <InArgument x:TypeArguments="x:Int32" />
-                                        </ui:CursorPosition.OffsetY>
-                                      </ui:CursorPosition>
-                                    </ui:Click.CursorPosition>
-                                    <ui:Click.Target>
-                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="fc8f200649a6255dee76e24c8a09b46f" Selector="&lt;wnd app='imageright.desktop.exe' ctrlname='ViewerDialog' /&gt;&lt;wnd ctrlname='ViewerControl' /&gt;&lt;wnd ctrlname='viewerPanel' /&gt;&lt;wnd ctrlname='ViewerPanel_Fill_Panel' /&gt;&lt;wnd ctrlname='ultraTabControl' /&gt;&lt;wnd ctrlname='ultraTabPageControlImage' /&gt;&lt;wnd ctrlname='AtalasoftViewerControl' /&gt;&lt;wnd cls='WindowsForms10.Window.*' idx='5' /&gt;&lt;ctrl name='Best Fit' role='push button' /&gt;" WaitForReady="INTERACTIVE" />
-                                    </ui:Click.Target>
-                                  </ui:Click>
-                                </FlowStep>
-                              </FlowStep.Next>
-                            </FlowStep>
-                          </FlowStep.Next>
-                        </FlowStep>
-                      </FlowStep.Next>
-                    </FlowStep>
-                  </FlowStep.Next>
-                </FlowStep>
-              </FlowStep.Next>
-            </FlowStep>
-          </FlowStep.Next>
-        </FlowStep>
-      </FlowStep.Next>
-    </FlowStep>
-    <FlowStep x:Name="__ReferenceID0" sap2010:WorkflowViewState.IdRef="FlowStep_14">
+    <x:Reference>__ReferenceID0</x:Reference>
+    <FlowStep x:Name="__ReferenceID1" sap2010:WorkflowViewState.IdRef="FlowStep_14">
       <Sequence DisplayName="Close ImageRight" sap2010:WorkflowViewState.IdRef="Sequence_12">
         <ui:SendHotkey DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Send hotkey 'imageright.desktop.exe ...'" EmptyField="False" sap2010:WorkflowViewState.IdRef="SendHotkey_1" Key="f4" KeyModifiers="Alt" SendWindowMessages="False" SpecialKey="True">
           <ui:SendHotkey.Target>
@@ -318,10 +373,9 @@
     <FlowStep sap2010:WorkflowViewState.IdRef="FlowStep_16">
       <ui:MessageBox ChosenButton="{x:Null}" Buttons="Ok" Caption="Confirm" DisplayName="Confirm IR Close" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="Press [Enter] to close Imageright" TopMost="True" />
       <FlowStep.Next>
-        <x:Reference>__ReferenceID0</x:Reference>
+        <x:Reference>__ReferenceID1</x:Reference>
       </FlowStep.Next>
     </FlowStep>
-    <x:Reference>__ReferenceID1</x:Reference>
     <x:Reference>__ReferenceID2</x:Reference>
     <x:Reference>__ReferenceID3</x:Reference>
     <x:Reference>__ReferenceID4</x:Reference>
@@ -438,53 +492,11 @@
       </DoWhile>
     </FlowStep>
     <x:Reference>__ReferenceID8</x:Reference>
-    <sads:DebugSymbol.Symbol>dylDOlxkZXZcVWlQYXRoXElSTWFya1BvbGljeVBhZ2VzXE1haW4ueGFtbBw+A7oDDwIBAUAzQDcCAQNBNEE/AgECRQl0FAIBBEYLRqYBAgEgRwtzFQIBBUaTAUajAQIBIkZERlsCASFJO0k+AgEGSyBLOAIBHUwNchgCAQdTD1cdAgEaWA9oHwIBEGkPabQGAgENag9xGAIBCFWiAVWOBAIBHFOhAlOtAgIBG2KIAWL0AwIBGV4VXpcCAgERaY0BabEGAgEPaUFpWAIBDm85b0YCAQtsOmxDAgEJXokCXpQCAgEXXoACXoMCAgEWXuwBXvkBAgEVXqwBXrUBAgETXs4BXtMBAgES</sads:DebugSymbol.Symbol>
+    <x:Reference>__ReferenceID9</x:Reference>
+    <sads:DebugSymbol.Symbol>dylDOlxkZXZcVWlQYXRoXElSTWFya1BvbGljeVBhZ2VzXE1haW4ueGFtbEw+A/EDDwIBAUAzQDcCAQNBNEE/AgECSAlI9AECAVZLDWEYAgFNZBF8HAIBRX8VkwEmAgE+lgEZzQEpAgE90AEd+AEoAgEp+wEhgQIxAgEohAIlkgIwAgEmlQIpxQI0AgEESHJIwAECAVdMD2AgAgFOaBNsIQIBSW0Tex4CAUZ/jwJ/kwMCAUSFARuQASYCAT/RAR/3ATACASqQArgBkALhBAIBJ5YCK5YCxgECASOXAiuXAucGAgEgmAIrxAI1AgEFTIkCTNACAgFVTNsCTOICAgFUUhVdIAIBT2qmAWqdBQIBTGilAmi1AgIBSnmmAXm/AgIBSG1VbVsCAUeGAR2KASsCAUKLAR2PASsCAUDRAa4C0QH1AgIBPNcBJfQBMAIBK5YCswGWAsMBAgEllgJklgJ7AgEklwKpAZcC5AYCASKXAl2XAnQCASGaAluaAl4CAQacAkCcAlgCAR2dAi3DAjgCAQdTF1cnAgFSWBdcJwIBUIYBsAKGAcYCAgFDiwGxAosBxwICAUHYASfrATcCATDsASfzATACASykAi+oAj0CARqpAi+5Aj8CARC6Ai+6AtQGAgENuwIvwgI4AgEIVaoBVckCAgFTWqoBWskCAgFR4gGgAeIBxwMCATvpAVrpAW4CATneAS3eAdoCAgEx8QFR8QGhAQIBL+4BUu4BXAIBLaYCwgGmAq4EAgEcpALBAqQCzQICARuzAqgBswKUBAIBGa8CNa8CtwICARG6Aq0BugLRBgIBD7oCYboCeAIBDsACWcACZgIBC70CWr0CYwIBCd4BvgLeAdcCAgE33gG1At4BuAICATbeAZ0C3gGuAgIBNd4B3gHeAecBAgEz3gH/Ad4BhAICATKvAqkCrwK0AgIBF68CoAKvAqMCAgEWrwKMAq8CmQICARWvAswBrwLVAQIBE68C7gGvAvMBAgES</sads:DebugSymbol.Symbol>
   </Flowchart>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
-      <sap2010:ViewStateData Id="WriteTextFile_2" sap:VirtualizedContainerService.HintSize="464,87" />
-      <sap2010:ViewStateData Id="TypeInto_16" sap:VirtualizedContainerService.HintSize="314,51">
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-            <x:Boolean x:Key="IsPinned">False</x:Boolean>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="GoogleOCR_9" sap:VirtualizedContainerService.HintSize="200,22" />
-      <sap2010:ViewStateData Id="GetOCRText_6" sap:VirtualizedContainerService.HintSize="314,168" />
-      <sap2010:ViewStateData Id="AppendLine_2" sap:VirtualizedContainerService.HintSize="314,87" />
-      <sap2010:ViewStateData Id="Assign_16" sap:VirtualizedContainerService.HintSize="314,60" />
-      <sap2010:ViewStateData Id="Sequence_62" sap:VirtualizedContainerService.HintSize="336,610">
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            <x:Boolean x:Key="IsPinned">False</x:Boolean>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="DoWhile_4" sap:VirtualizedContainerService.HintSize="464,772">
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="Sequence_61" sap:VirtualizedContainerService.HintSize="486,1023">
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="FlowStep_51">
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <av:Point x:Key="ShapeLocation">410,134.5</av:Point>
-            <av:Size x:Key="ShapeSize">200,51</av:Size>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </sap2010:ViewStateData>
       <sap2010:ViewStateData Id="StartProcess_2" sap:VirtualizedContainerService.HintSize="200,51" />
       <sap2010:ViewStateData Id="SendHotkey_2" sap:VirtualizedContainerService.HintSize="314,154" />
       <sap2010:ViewStateData Id="SendHotkey_3" sap:VirtualizedContainerService.HintSize="314,154" />
@@ -528,14 +540,25 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="TypeInto_14" sap:VirtualizedContainerService.HintSize="200,51">
+      <sap2010:ViewStateData Id="SendHotkey_25" sap:VirtualizedContainerService.HintSize="314,154" />
+      <sap2010:ViewStateData Id="WaitUiElementAppear_2" sap:VirtualizedContainerService.HintSize="314,106" />
+      <sap2010:ViewStateData Id="AnchorBase_2" sap:VirtualizedContainerService.HintSize="706,246" />
+      <sap2010:ViewStateData Id="GoogleOCR_12" sap:VirtualizedContainerService.HintSize="200,22" />
+      <sap2010:ViewStateData Id="ClickOCRText_3" sap:VirtualizedContainerService.HintSize="314,201">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Sequence_64" sap:VirtualizedContainerService.HintSize="200,51">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="CommentOut_2" sap:VirtualizedContainerService.HintSize="200,51" />
       <sap2010:ViewStateData Id="GoogleOCR_1" sap:VirtualizedContainerService.HintSize="200,22" />
       <sap2010:ViewStateData Id="GetOCRText_4" sap:VirtualizedContainerService.HintSize="314,168" />
       <sap2010:ViewStateData Id="Assign_1" sap:VirtualizedContainerService.HintSize="314,60" />
@@ -548,14 +571,21 @@
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
       <sap2010:ViewStateData Id="WindowScope_8" sap:VirtualizedContainerService.HintSize="414,538" />
-      <sap2010:ViewStateData Id="Sequence_38" sap:VirtualizedContainerService.HintSize="200,51">
+      <sap2010:ViewStateData Id="Sequence_38" sap:VirtualizedContainerService.HintSize="436,662">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="MessageBox_3" sap:VirtualizedContainerService.HintSize="200,51">
+      <sap2010:ViewStateData Id="MessageBox_3" sap:VirtualizedContainerService.HintSize="314,59">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Sequence_63" sap:VirtualizedContainerService.HintSize="336,183">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -564,11 +594,56 @@
       </sap2010:ViewStateData>
       <sap2010:ViewStateData Id="CommentOut_1" sap:VirtualizedContainerService.HintSize="200,51" />
       <sap2010:ViewStateData Id="Click_11" sap:VirtualizedContainerService.HintSize="200,51" />
+      <sap2010:ViewStateData Id="WriteTextFile_2" sap:VirtualizedContainerService.HintSize="464,87" />
+      <sap2010:ViewStateData Id="AppendLine_3" sap:VirtualizedContainerService.HintSize="464,87" />
+      <sap2010:ViewStateData Id="TypeInto_16" sap:VirtualizedContainerService.HintSize="314,51">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="GoogleOCR_9" sap:VirtualizedContainerService.HintSize="200,22" />
+      <sap2010:ViewStateData Id="GetOCRText_6" sap:VirtualizedContainerService.HintSize="314,168" />
+      <sap2010:ViewStateData Id="AppendLine_2" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="Assign_16" sap:VirtualizedContainerService.HintSize="314,60" />
+      <sap2010:ViewStateData Id="Sequence_62" sap:VirtualizedContainerService.HintSize="336,610">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="DoWhile_4" sap:VirtualizedContainerService.HintSize="464,772">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Sequence_61" sap:VirtualizedContainerService.HintSize="200,51">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="FlowStep_51">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <av:Point x:Key="ShapeLocation">410,134.5</av:Point>
+            <av:Size x:Key="ShapeSize">200,51</av:Size>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
       <sap2010:ViewStateData Id="FlowStep_44">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <av:Point x:Key="ShapeLocation">60,654.5</av:Point>
             <av:Size x:Key="ShapeSize">200,51</av:Size>
+            <av:PointCollection x:Key="ConnectorLocation">160,705.5 160,730 380,730 380,160 410,160</av:PointCollection>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
@@ -590,7 +665,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="FlowStep_49">
+      <sap2010:ViewStateData Id="FlowStep_53">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <av:Point x:Key="ShapeLocation">60,404.5</av:Point>
@@ -746,7 +821,7 @@
             <x:Boolean x:Key="IsExpanded">False</x:Boolean>
             <av:Point x:Key="ShapeLocation">330,2.5</av:Point>
             <av:Size x:Key="ShapeSize">60,75</av:Size>
-            <av:PointCollection x:Key="ConnectorLocation">360,77.5 360,160 410,160</av:PointCollection>
+            <av:PointCollection x:Key="ConnectorLocation">360,77.5 160,77.5 160,104.5</av:PointCollection>
             <x:Double x:Key="Width">774.5</x:Double>
             <x:Double x:Key="Height">895.5</x:Double>
           </scg:Dictionary>
