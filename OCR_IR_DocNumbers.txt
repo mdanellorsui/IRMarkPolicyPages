@@ -1,8 +1,15 @@
-﻿Page: 1 ocrText: GBA 901001 1112
- ocrResult 1: GBA
- ocrResult 2: 901001
- ocrResult 3: 1112
- ocrResult 4:  
+﻿Tree:  ocrTreeLine: [3- D 6/27/2018 Policy - Policy (84 Pagw)
+ ocrWord 1: [3- D 6/27/2018 Policy - Policy (84 Pagw)
+ ocrWord 2:  
+ ocrWord 3:  
+ ocrWord 4:  
+ ocrWord 5:  
+
+Page: 1 ocrText: “ GBA 901001 1112
+ ocrResult 1: “
+ ocrResult 2: GBA
+ ocrResult 3: 901001
+ ocrResult 4: 1112
  ocrResult 5:  
 
 Page: 2 ocrText: g
@@ -19,23 +26,23 @@ Page: 3 ocrText: GBA 900001 1012
  ocrResult 4:  
  ocrResult 5:  
 
-Page: 4 ocrText: GBA 900002 “05
+Page: 4 ocrText: GBA 900002 1105
  ocrResult 1: GBA
  ocrResult 2: 900002
- ocrResult 3: “05
+ ocrResult 3: 1105
  ocrResult 4:  
  ocrResult 5:  
 
-Page: 5 ocrText: GBA 900002 “05
+Page: 5 ocrText: GBA 900002 1105
  ocrResult 1: GBA
  ocrResult 2: 900002
- ocrResult 3: “05
+ ocrResult 3: 1105
  ocrResult 4:  
  ocrResult 5:  
 
-Page: 6 ocrText: RSG 990181211
- ocrResult 1: RSG
- ocrResult 2: 990181211
+Page: 6 ocrText: 886990181211
+ ocrResult 1: 886990181211
+ ocrResult 2:  
  ocrResult 3:  
  ocrResult 4:  
  ocrResult 5:  
@@ -61,9 +68,9 @@ Page: 9 ocrText: GBA 906011 0414
  ocrResult 4:  
  ocrResult 5:  
 
-Page: 10 ocrText: GBA 9060141216
- ocrResult 1: GBA
- ocrResult 2: 9060141216
+Page: 10 ocrText: GBA9080141216
+ ocrResult 1: GBA9080141216
+ ocrResult 2:  
  ocrResult 3:  
  ocrResult 4:  
  ocrResult 5:  
@@ -75,10 +82,10 @@ Page: 11 ocrText: GBA 909001 0407
  ocrResult 4:  
  ocrResult 5:  
 
-Page: 12 ocrText: IL 001711 98
- ocrResult 1: IL
- ocrResult 2: 001711
- ocrResult 3: 98
+Page: 12 ocrText: |L00171198
+ ocrResult 1: |L00171198
+ ocrResult 2:  
+ ocrResult 3:  
  ocrResult 4:  
  ocrResult 5:  
 
@@ -89,25 +96,25 @@ Page: 13 ocrText: IL 00 21 05 04
  ocrResult 4: 05
  ocrResult 5: 04
 
-Page: 14 ocrText: Page 2 0t 2
+Page: 14 ocrText: Page 2 of 2
  ocrResult 1: Page
  ocrResult 2: 2
- ocrResult 3: 0t
+ ocrResult 3: of
  ocrResult 4: 2
  ocrResult 5:  
 
-Page: 15 ocrText: GBA100001 0313
- ocrResult 1: GBA100001
- ocrResult 2: 0313
- ocrResult 3:  
+Page: 15 ocrText: GBA 100001 0813
+ ocrResult 1: GBA
+ ocrResult 2: 100001
+ ocrResult 3: 0813
  ocrResult 4:  
  ocrResult 5:  
 
-Page: 16 ocrText: CG 00 010413
+Page: 16 ocrText: CG 00 01 0413
  ocrResult 1: CG
  ocrResult 2: 00
- ocrResult 3: 010413
- ocrResult 4:  
+ ocrResult 3: 01
+ ocrResult 4: 0413
  ocrResult 5:  
 
 Page: 17 ocrText: Page 2 of 16
@@ -117,11 +124,11 @@ Page: 17 ocrText: Page 2 of 16
  ocrResult 4: 16
  ocrResult 5:  
 
-Page: 18 ocrText: CG 00 010413
+Page: 18 ocrText: CG 00 01 0413
  ocrResult 1: CG
  ocrResult 2: 00
- ocrResult 3: 010413
- ocrResult 4:  
+ ocrResult 3: 01
+ ocrResult 4: 0413
  ocrResult 5:  
 
 Page: 19 ocrText: Page 4 of 16
@@ -131,11 +138,11 @@ Page: 19 ocrText: Page 4 of 16
  ocrResult 4: 16
  ocrResult 5:  
 
-Page: 20 ocrText: CG 00 010413
+Page: 20 ocrText: CG 00 01 0413
  ocrResult 1: CG
  ocrResult 2: 00
- ocrResult 3: 010413
- ocrResult 4:  
+ ocrResult 3: 01
+ ocrResult 4: 0413
  ocrResult 5:  
 
 Page: 21 ocrText: Page 6 of 16
@@ -145,11 +152,11 @@ Page: 21 ocrText: Page 6 of 16
  ocrResult 4: 16
  ocrResult 5:  
 
-Page: 22 ocrText: CG 00 010413
+Page: 22 ocrText: CG 00 01 0413
  ocrResult 1: CG
  ocrResult 2: 00
- ocrResult 3: 010413
- ocrResult 4:  
+ ocrResult 3: 01
+ ocrResult 4: 0413
  ocrResult 5:  
 
 Page: 23 ocrText: Page 8 of 16
@@ -159,25 +166,25 @@ Page: 23 ocrText: Page 8 of 16
  ocrResult 4: 16
  ocrResult 5:  
 
-Page: 24 ocrText: CG 00 010413
+Page: 24 ocrText: CG 00 01 0413
  ocrResult 1: CG
  ocrResult 2: 00
- ocrResult 3: 010413
- ocrResult 4:  
+ ocrResult 3: 01
+ ocrResult 4: 0413
  ocrResult 5:  
 
-Page: 25 ocrText: Page1Dof16
- ocrResult 1: Page1Dof16
- ocrResult 2:  
- ocrResult 3:  
- ocrResult 4:  
+Page: 25 ocrText: Page 10 of 16
+ ocrResult 1: Page
+ ocrResult 2: 10
+ ocrResult 3: of
+ ocrResult 4: 16
  ocrResult 5:  
 
-Page: 26 ocrText: CG 00 010413
+Page: 26 ocrText: CG 00 01 0413
  ocrResult 1: CG
  ocrResult 2: 00
- ocrResult 3: 010413
- ocrResult 4:  
+ ocrResult 3: 01
+ ocrResult 4: 0413
  ocrResult 5:  
 
 Page: 27 ocrText: Page 12 of 16
@@ -187,25 +194,25 @@ Page: 27 ocrText: Page 12 of 16
  ocrResult 4: 16
  ocrResult 5:  
 
-Page: 28 ocrText: CG 00 010413
+Page: 28 ocrText: CG 00 01 0413
  ocrResult 1: CG
  ocrResult 2: 00
- ocrResult 3: 010413
- ocrResult 4:  
+ ocrResult 3: 01
+ ocrResult 4: 0413
  ocrResult 5:  
 
-Page: 29 ocrText: Page140f16
- ocrResult 1: Page140f16
- ocrResult 2:  
- ocrResult 3:  
- ocrResult 4:  
+Page: 29 ocrText: Page 14 of 16
+ ocrResult 1: Page
+ ocrResult 2: 14
+ ocrResult 3: of
+ ocrResult 4: 16
  ocrResult 5:  
 
-Page: 30 ocrText: CG 00 010413
+Page: 30 ocrText: CG 00 01 0413
  ocrResult 1: CG
  ocrResult 2: 00
- ocrResult 3: 010413
- ocrResult 4:  
+ ocrResult 3: 01
+ ocrResult 4: 0413
  ocrResult 5:  
 
 Page: 31 ocrText: Page 16 of 16
@@ -229,30 +236,366 @@ Page: 33 ocrText: CG 21 44 07 98
  ocrResult 4: 07
  ocrResult 5: 98
 
-Page: 34 ocrText: GBA 104014 0106
+Page: 34 ocrText: CG 21 44 07 98
+ ocrResult 1: CG
+ ocrResult 2: 21
+ ocrResult 3: 44
+ ocrResult 4: 07
+ ocrResult 5: 98
+
+Page: 35 ocrText: CG 21 44 07 98
+ ocrResult 1: CG
+ ocrResult 2: 21
+ ocrResult 3: 44
+ ocrResult 4: 07
+ ocrResult 5: 98
+
+Page: 36 ocrText: CG 21 44 07 98
+ ocrResult 1: CG
+ ocrResult 2: 21
+ ocrResult 3: 44
+ ocrResult 4: 07
+ ocrResult 5: 98
+
+Page: 37 ocrText: CG 21 44 07 98
+ ocrResult 1: CG
+ ocrResult 2: 21
+ ocrResult 3: 44
+ ocrResult 4: 07
+ ocrResult 5: 98
+
+Page: 38 ocrText: CG 21 44 07 98
+ ocrResult 1: CG
+ ocrResult 2: 21
+ ocrResult 3: 44
+ ocrResult 4: 07
+ ocrResult 5: 98
+
+Page: 39 ocrText: CG 21 44 07 98
+ ocrResult 1: CG
+ ocrResult 2: 21
+ ocrResult 3: 44
+ ocrResult 4: 07
+ ocrResult 5: 98
+
+Page: 40 ocrText: CG 21 44 07 98
+ ocrResult 1: CG
+ ocrResult 2: 21
+ ocrResult 3: 44
+ ocrResult 4: 07
+ ocrResult 5: 98
+
+Page: 41 ocrText: GBA 1040140106
  ocrResult 1: GBA
- ocrResult 2: 104014
- ocrResult 3: 0106
+ ocrResult 2: 1040140106
+ ocrResult 3:  
  ocrResult 4:  
  ocrResult 5:  
 
-Page: 35 ocrText: GBA 106015 1106
+Page: 42 ocrText: GBA 108059 0113
  ocrResult 1: GBA
- ocrResult 2: 106015
- ocrResult 3: 1106
- ocrResult 4:  
- ocrResult 5:  
-
-Page: 36 ocrText: GBA 106059 0113
- ocrResult 1: GBA
- ocrResult 2: 106059
+ ocrResult 2: 108059
  ocrResult 3: 0113
  ocrResult 4:  
  ocrResult 5:  
 
-Page: 37 ocrText: GBA 106059 0113
+Page: 43 ocrText: GBA 108059 0113
  ocrResult 1: GBA
- ocrResult 2: 106059
+ ocrResult 2: 108059
  ocrResult 3: 0113
+ ocrResult 4:  
+ ocrResult 5:  
+
+Page: 44 ocrText: GBA 108059 0113
+ ocrResult 1: GBA
+ ocrResult 2: 108059
+ ocrResult 3: 0113
+ ocrResult 4:  
+ ocrResult 5:  
+
+Page: 45 ocrText: GBA1060681215
+ ocrResult 1: GBA1060681215
+ ocrResult 2:  
+ ocrResult 3:  
+ ocrResult 4:  
+ ocrResult 5:  
+
+Page: 46 ocrText: GBA1080921111
+ ocrResult 1: GBA1080921111
+ ocrResult 2:  
+ ocrResult 3:  
+ ocrResult 4:  
+ ocrResult 5:  
+
+Page: 47 ocrText: GBA 108099 0913
+ ocrResult 1: GBA
+ ocrResult 2: 108099
+ ocrResult 3: 0913
+ ocrResult 4:  
+ ocrResult 5:  
+
+Page: 48 ocrText: GBA106109 0115
+ ocrResult 1: GBA106109
+ ocrResult 2: 0115
+ ocrResult 3:  
+ ocrResult 4:  
+ ocrResult 5:  
+
+Page: 49 ocrText: GBA 400001 0516
+ ocrResult 1: GBA
+ ocrResult 2: 400001
+ ocrResult 3: 0516
+ ocrResult 4:  
+ ocrResult 5:  
+
+Page: 50 ocrText: GBA 400001 0516
+ ocrResult 1: GBA
+ ocrResult 2: 400001
+ ocrResult 3: 0516
+ ocrResult 4:  
+ ocrResult 5:  
+
+Page: 51 ocrText: CP 00 101012
+ ocrResult 1: CP
+ ocrResult 2: 00
+ ocrResult 3: 101012
+ ocrResult 4:  
+ ocrResult 5:  
+
+Page: 52 ocrText: Page 2 of 16
+ ocrResult 1: Page
+ ocrResult 2: 2
+ ocrResult 3: of
+ ocrResult 4: 16
+ ocrResult 5:  
+
+Page: 53 ocrText: CP 00 101012
+ ocrResult 1: CP
+ ocrResult 2: 00
+ ocrResult 3: 101012
+ ocrResult 4:  
+ ocrResult 5:  
+
+Page: 54 ocrText: Page 4 of 16
+ ocrResult 1: Page
+ ocrResult 2: 4
+ ocrResult 3: of
+ ocrResult 4: 16
+ ocrResult 5:  
+
+Page: 55 ocrText: CP 00 101012
+ ocrResult 1: CP
+ ocrResult 2: 00
+ ocrResult 3: 101012
+ ocrResult 4:  
+ ocrResult 5:  
+
+Page: 56 ocrText: Page 6 of 16
+ ocrResult 1: Page
+ ocrResult 2: 6
+ ocrResult 3: of
+ ocrResult 4: 16
+ ocrResult 5:  
+
+Page: 57 ocrText: CP 00 101012
+ ocrResult 1: CP
+ ocrResult 2: 00
+ ocrResult 3: 101012
+ ocrResult 4:  
+ ocrResult 5:  
+
+Page: 58 ocrText: Page 8 of 16
+ ocrResult 1: Page
+ ocrResult 2: 8
+ ocrResult 3: of
+ ocrResult 4: 16
+ ocrResult 5:  
+
+Page: 59 ocrText: CP 00 101012
+ ocrResult 1: CP
+ ocrResult 2: 00
+ ocrResult 3: 101012
+ ocrResult 4:  
+ ocrResult 5:  
+
+Page: 60 ocrText: Page 10 of 16
+ ocrResult 1: Page
+ ocrResult 2: 10
+ ocrResult 3: of
+ ocrResult 4: 16
+ ocrResult 5:  
+
+Page: 61 ocrText: CP 00 101012
+ ocrResult 1: CP
+ ocrResult 2: 00
+ ocrResult 3: 101012
+ ocrResult 4:  
+ ocrResult 5:  
+
+Page: 62 ocrText: Page 12 of 16
+ ocrResult 1: Page
+ ocrResult 2: 12
+ ocrResult 3: of
+ ocrResult 4: 16
+ ocrResult 5:  
+
+Page: 63 ocrText: CP 00 101012
+ ocrResult 1: CP
+ ocrResult 2: 00
+ ocrResult 3: 101012
+ ocrResult 4:  
+ ocrResult 5:  
+
+Page: 64 ocrText: Page 14 of 16
+ ocrResult 1: Page
+ ocrResult 2: 14
+ ocrResult 3: of
+ ocrResult 4: 16
+ ocrResult 5:  
+
+Page: 65 ocrText: CP 00 101012
+ ocrResult 1: CP
+ ocrResult 2: 00
+ ocrResult 3: 101012
+ ocrResult 4:  
+ ocrResult 5:  
+
+Page: 66 ocrText: Page 16 of 16
+ ocrResult 1: Page
+ ocrResult 2: 16
+ ocrResult 3: of
+ ocrResult 4: 16
+ ocrResult 5:  
+
+Page: 67 ocrText: CP 00 90 07 88
+ ocrResult 1: CP
+ ocrResult 2: 00
+ ocrResult 3: 90
+ ocrResult 4: 07
+ ocrResult 5: 88
+
+Page: 68 ocrText: Page 2 of 2
+ ocrResult 1: Page
+ ocrResult 2: 2
+ ocrResult 3: of
+ ocrResult 4: 2
+ ocrResult 5:  
+
+Page: 69 ocrText: CP 10 301012
+ ocrResult 1: CP
+ ocrResult 2: 10
+ ocrResult 3: 301012
+ ocrResult 4:  
+ ocrResult 5:  
+
+Page: 70 ocrText: Page 2 of 10
+ ocrResult 1: Page
+ ocrResult 2: 2
+ ocrResult 3: of
+ ocrResult 4: 10
+ ocrResult 5:  
+
+Page: 71 ocrText: CP 10 301012
+ ocrResult 1: CP
+ ocrResult 2: 10
+ ocrResult 3: 301012
+ ocrResult 4:  
+ ocrResult 5:  
+
+Page: 72 ocrText: Page 4 of 10
+ ocrResult 1: Page
+ ocrResult 2: 4
+ ocrResult 3: of
+ ocrResult 4: 10
+ ocrResult 5:  
+
+Page: 73 ocrText: CP 10 301012
+ ocrResult 1: CP
+ ocrResult 2: 10
+ ocrResult 3: 301012
+ ocrResult 4:  
+ ocrResult 5:  
+
+Page: 74 ocrText: Page 6 of 10
+ ocrResult 1: Page
+ ocrResult 2: 6
+ ocrResult 3: of
+ ocrResult 4: 10
+ ocrResult 5:  
+
+Page: 75 ocrText: CP 10 301012
+ ocrResult 1: CP
+ ocrResult 2: 10
+ ocrResult 3: 301012
+ ocrResult 4:  
+ ocrResult 5:  
+
+Page: 76 ocrText: Page 8 of 10
+ ocrResult 1: Page
+ ocrResult 2: 8
+ ocrResult 3: of
+ ocrResult 4: 10
+ ocrResult 5:  
+
+Page: 77 ocrText: CP 10 301012
+ ocrResult 1: CP
+ ocrResult 2: 10
+ ocrResult 3: 301012
+ ocrResult 4:  
+ ocrResult 5:  
+
+Page: 78 ocrText: Page 10 of 10
+ ocrResult 1: Page
+ ocrResult 2: 10
+ ocrResult 3: of
+ ocrResult 4: 10
+ ocrResult 5:  
+
+Page: 79 ocrText: CP12111000
+ ocrResult 1: CP12111000
+ ocrResult 2:  
+ ocrResult 3:  
+ ocrResult 4:  
+ ocrResult 5:  
+
+Page: 80 ocrText: GBA 404002 0813
+ ocrResult 1: GBA
+ ocrResult 2: 404002
+ ocrResult 3: 0813
+ ocrResult 4:  
+ ocrResult 5:  
+
+Page: 81 ocrText: GBA 404011 1012
+ ocrResult 1: GBA
+ ocrResult 2: 404011
+ ocrResult 3: 1012
+ ocrResult 4:  
+ ocrResult 5:  
+
+Page: 82 ocrText: GBA 404011 1012
+ ocrResult 1: GBA
+ ocrResult 2: 404011
+ ocrResult 3: 1012
+ ocrResult 4:  
+ ocrResult 5:  
+
+Page: 83 ocrText: GBA 404012 1208
+ ocrResult 1: GBA
+ ocrResult 2: 404012
+ ocrResult 3: 1208
+ ocrResult 4:  
+ ocrResult 5:  
+
+Page: 84 ocrText: (SBA 404030 0116
+ ocrResult 1: (SBA
+ ocrResult 2: 404030
+ ocrResult 3: 0116
+ ocrResult 4:  
+ ocrResult 5:  
+
+Page: 85 ocrText: GBA 404031 0417
+ ocrResult 1: GBA
+ ocrResult 2: 404031
+ ocrResult 3: 0417
  ocrResult 4:  
  ocrResult 5:  
