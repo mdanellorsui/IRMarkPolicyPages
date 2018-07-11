@@ -12,12 +12,18 @@ Page: 1 ocrText: “ GBA 901001 1112
  ocrResult 4: 1112
  ocrResult 5:  
 
+
+****  Dec Doc Found: False
+
 Page: 2 ocrText: g
  ocrResult 1: g
  ocrResult 2:  
  ocrResult 3:  
  ocrResult 4:  
  ocrResult 5:  
+
+
+****  Dec Doc Found: False
 
 Page: 3 ocrText: GBA 900001 1012
  ocrResult 1: GBA
@@ -26,12 +32,18 @@ Page: 3 ocrText: GBA 900001 1012
  ocrResult 4:  
  ocrResult 5:  
 
+
+****  Dec Doc Found: False
+
 Page: 4 ocrText: GBA 900002 1105
  ocrResult 1: GBA
  ocrResult 2: 900002
  ocrResult 3: 1105
  ocrResult 4:  
  ocrResult 5:  
+
+
+****  Dec Doc Found: False
 
 Page: 5 ocrText: GBA 900002 1105
  ocrResult 1: GBA
@@ -40,12 +52,18 @@ Page: 5 ocrText: GBA 900002 1105
  ocrResult 4:  
  ocrResult 5:  
 
+
+****  Dec Doc Found: False
+
 Page: 6 ocrText: 886990181211
  ocrResult 1: 886990181211
  ocrResult 2:  
  ocrResult 3:  
  ocrResult 4:  
  ocrResult 5:  
+
+
+****  Dec Doc Found: False
 
 Page: 7 ocrText: GBA 904010 0117
  ocrResult 1: GBA
@@ -54,187 +72,268 @@ Page: 7 ocrText: GBA 904010 0117
  ocrResult 4:  
  ocrResult 5:  
 
-Page: 8 ocrText: GBA 906005 0115
+
+****  Dec Doc Found: False
+
+Page: 8 ocrText: GBA 904010 0117
+ ocrResult 1: GBA
+ ocrResult 2: 904010
+ ocrResult 3: 0117
+ ocrResult 4:  
+ ocrResult 5:  
+
+
+****  Dec Doc Found: False
+
+Page: 9 ocrText: GBA 906005 0115
  ocrResult 1: GBA
  ocrResult 2: 906005
  ocrResult 3: 0115
  ocrResult 4:  
  ocrResult 5:  
 
-Page: 9 ocrText: GBA 906011 0414
+
+****  Dec Doc Found: False
+
+Page: 10 ocrText: GBA 906011 0414
  ocrResult 1: GBA
  ocrResult 2: 906011
  ocrResult 3: 0414
  ocrResult 4:  
  ocrResult 5:  
 
-Page: 10 ocrText: GBA9080141216
+
+****  Dec Doc Found: False
+
+Page: 11 ocrText: GBA9080141216
  ocrResult 1: GBA9080141216
  ocrResult 2:  
  ocrResult 3:  
  ocrResult 4:  
  ocrResult 5:  
 
-Page: 11 ocrText: GBA 909001 0407
+
+****  Dec Doc Found: False
+
+Page: 12 ocrText: GBA 909001 0407
  ocrResult 1: GBA
  ocrResult 2: 909001
  ocrResult 3: 0407
  ocrResult 4:  
  ocrResult 5:  
 
-Page: 12 ocrText: |L00171198
+
+****  Dec Doc Found: False
+
+Page: 13 ocrText: |L00171198
  ocrResult 1: |L00171198
  ocrResult 2:  
  ocrResult 3:  
  ocrResult 4:  
  ocrResult 5:  
 
-Page: 13 ocrText: IL 00 21 05 04
+
+****  Dec Doc Found: False
+
+Page: 14 ocrText: IL 00 21 05 04
  ocrResult 1: IL
  ocrResult 2: 00
  ocrResult 3: 21
  ocrResult 4: 05
  ocrResult 5: 04
 
-Page: 14 ocrText: Page 2 of 2
+
+****  Dec Doc Found: False
+
+Page: 15 ocrText: Page 2 of 2
  ocrResult 1: Page
  ocrResult 2: 2
  ocrResult 3: of
  ocrResult 4: 2
  ocrResult 5:  
 
-Page: 15 ocrText: GBA 100001 0813
+
+****  Dec Doc Found: False
+
+Page: 16 ocrText: GBA 100001 0813
  ocrResult 1: GBA
  ocrResult 2: 100001
  ocrResult 3: 0813
  ocrResult 4:  
  ocrResult 5:  
 
-Page: 16 ocrText: CG 00 01 0413
+
+****  Dec Doc Found: False
+
+Page: 17 ocrText: CG 00 01 0413
  ocrResult 1: CG
  ocrResult 2: 00
  ocrResult 3: 01
  ocrResult 4: 0413
  ocrResult 5:  
 
-Page: 17 ocrText: Page 2 of 16
+
+****  Dec Doc Found: False
+
+Page: 18 ocrText: Page 2 of 16
  ocrResult 1: Page
  ocrResult 2: 2
  ocrResult 3: of
  ocrResult 4: 16
  ocrResult 5:  
 
-Page: 18 ocrText: CG 00 01 0413
+
+****  Dec Doc Found: False
+
+Page: 19 ocrText: CG 00 01 0413
  ocrResult 1: CG
  ocrResult 2: 00
  ocrResult 3: 01
  ocrResult 4: 0413
  ocrResult 5:  
 
-Page: 19 ocrText: Page 4 of 16
+
+****  Dec Doc Found: False
+
+Page: 20 ocrText: Page 4 of 16
  ocrResult 1: Page
  ocrResult 2: 4
  ocrResult 3: of
  ocrResult 4: 16
  ocrResult 5:  
 
-Page: 20 ocrText: CG 00 01 0413
+
+****  Dec Doc Found: False
+
+Page: 21 ocrText: CG 00 01 0413
  ocrResult 1: CG
  ocrResult 2: 00
  ocrResult 3: 01
  ocrResult 4: 0413
  ocrResult 5:  
 
-Page: 21 ocrText: Page 6 of 16
+
+****  Dec Doc Found: False
+
+Page: 22 ocrText: Page 6 of 16
  ocrResult 1: Page
  ocrResult 2: 6
  ocrResult 3: of
  ocrResult 4: 16
  ocrResult 5:  
 
-Page: 22 ocrText: CG 00 01 0413
+
+****  Dec Doc Found: False
+
+Page: 23 ocrText: CG 00 01 0413
  ocrResult 1: CG
  ocrResult 2: 00
  ocrResult 3: 01
  ocrResult 4: 0413
  ocrResult 5:  
 
-Page: 23 ocrText: Page 8 of 16
+
+****  Dec Doc Found: False
+
+Page: 24 ocrText: Page 8 of 16
  ocrResult 1: Page
  ocrResult 2: 8
  ocrResult 3: of
  ocrResult 4: 16
  ocrResult 5:  
 
-Page: 24 ocrText: CG 00 01 0413
+
+****  Dec Doc Found: False
+
+Page: 25 ocrText: CG 00 01 0413
  ocrResult 1: CG
  ocrResult 2: 00
  ocrResult 3: 01
  ocrResult 4: 0413
  ocrResult 5:  
 
-Page: 25 ocrText: Page 10 of 16
+
+****  Dec Doc Found: False
+
+Page: 26 ocrText: Page 10 of 16
  ocrResult 1: Page
  ocrResult 2: 10
  ocrResult 3: of
  ocrResult 4: 16
  ocrResult 5:  
 
-Page: 26 ocrText: CG 00 01 0413
+
+****  Dec Doc Found: False
+
+Page: 27 ocrText: CG 00 01 0413
  ocrResult 1: CG
  ocrResult 2: 00
  ocrResult 3: 01
  ocrResult 4: 0413
  ocrResult 5:  
 
-Page: 27 ocrText: Page 12 of 16
+
+****  Dec Doc Found: False
+
+Page: 28 ocrText: Page 12 of 16
  ocrResult 1: Page
  ocrResult 2: 12
  ocrResult 3: of
  ocrResult 4: 16
  ocrResult 5:  
 
-Page: 28 ocrText: CG 00 01 0413
+
+****  Dec Doc Found: False
+
+Page: 29 ocrText: CG 00 01 0413
  ocrResult 1: CG
  ocrResult 2: 00
  ocrResult 3: 01
  ocrResult 4: 0413
  ocrResult 5:  
 
-Page: 29 ocrText: Page 14 of 16
+
+****  Dec Doc Found: False
+
+Page: 30 ocrText: Page 14 of 16
  ocrResult 1: Page
  ocrResult 2: 14
  ocrResult 3: of
  ocrResult 4: 16
  ocrResult 5:  
 
-Page: 30 ocrText: CG 00 01 0413
+
+****  Dec Doc Found: False
+
+Page: 31 ocrText: CG 00 01 0413
  ocrResult 1: CG
  ocrResult 2: 00
  ocrResult 3: 01
  ocrResult 4: 0413
  ocrResult 5:  
 
-Page: 31 ocrText: Page 16 of 16
+
+****  Dec Doc Found: False
+
+Page: 32 ocrText: Page 16 of 16
  ocrResult 1: Page
  ocrResult 2: 16
  ocrResult 3: of
  ocrResult 4: 16
  ocrResult 5:  
 
-Page: 32 ocrText: CG 21391093
+
+****  Dec Doc Found: False
+
+Page: 33 ocrText: CG 21391093
  ocrResult 1: CG
  ocrResult 2: 21391093
  ocrResult 3:  
  ocrResult 4:  
  ocrResult 5:  
 
-Page: 33 ocrText: CG 21 44 07 98
- ocrResult 1: CG
- ocrResult 2: 21
- ocrResult 3: 44
- ocrResult 4: 07
- ocrResult 5: 98
+
+****  Dec Doc Found: False
 
 Page: 34 ocrText: CG 21 44 07 98
  ocrResult 1: CG
@@ -243,359 +342,515 @@ Page: 34 ocrText: CG 21 44 07 98
  ocrResult 4: 07
  ocrResult 5: 98
 
-Page: 35 ocrText: CG 21 44 07 98
- ocrResult 1: CG
- ocrResult 2: 21
- ocrResult 3: 44
- ocrResult 4: 07
- ocrResult 5: 98
 
-Page: 36 ocrText: CG 21 44 07 98
- ocrResult 1: CG
- ocrResult 2: 21
- ocrResult 3: 44
- ocrResult 4: 07
- ocrResult 5: 98
+****  Dec Doc Found: False
 
-Page: 37 ocrText: CG 21 44 07 98
- ocrResult 1: CG
- ocrResult 2: 21
- ocrResult 3: 44
- ocrResult 4: 07
- ocrResult 5: 98
-
-Page: 38 ocrText: CG 21 44 07 98
- ocrResult 1: CG
- ocrResult 2: 21
- ocrResult 3: 44
- ocrResult 4: 07
- ocrResult 5: 98
-
-Page: 39 ocrText: CG 21 44 07 98
- ocrResult 1: CG
- ocrResult 2: 21
- ocrResult 3: 44
- ocrResult 4: 07
- ocrResult 5: 98
-
-Page: 40 ocrText: CG 21 44 07 98
- ocrResult 1: CG
- ocrResult 2: 21
- ocrResult 3: 44
- ocrResult 4: 07
- ocrResult 5: 98
-
-Page: 41 ocrText: GBA 1040140106
+Page: 35 ocrText: GBA 1040140106
  ocrResult 1: GBA
  ocrResult 2: 1040140106
  ocrResult 3:  
  ocrResult 4:  
  ocrResult 5:  
 
-Page: 42 ocrText: GBA 108059 0113
+
+****  Dec Doc Found: False
+
+Page: 36 ocrText: GBA1080151106
+ ocrResult 1: GBA1080151106
+ ocrResult 2:  
+ ocrResult 3:  
+ ocrResult 4:  
+ ocrResult 5:  
+
+
+****  Dec Doc Found: False
+
+Page: 37 ocrText: GBA 108059 0113
  ocrResult 1: GBA
  ocrResult 2: 108059
  ocrResult 3: 0113
  ocrResult 4:  
  ocrResult 5:  
 
-Page: 43 ocrText: GBA 108059 0113
+
+****  Dec Doc Found: False
+
+Page: 38 ocrText: GBA 108059 0113
  ocrResult 1: GBA
  ocrResult 2: 108059
  ocrResult 3: 0113
  ocrResult 4:  
  ocrResult 5:  
 
-Page: 44 ocrText: GBA 108059 0113
+
+****  Dec Doc Found: False
+
+Page: 39 ocrText: GBA 108059 0113
  ocrResult 1: GBA
  ocrResult 2: 108059
  ocrResult 3: 0113
  ocrResult 4:  
  ocrResult 5:  
 
-Page: 45 ocrText: GBA1060681215
+
+****  Dec Doc Found: False
+
+Page: 40 ocrText: GBA1060681215
  ocrResult 1: GBA1060681215
  ocrResult 2:  
  ocrResult 3:  
  ocrResult 4:  
  ocrResult 5:  
 
-Page: 46 ocrText: GBA1080921111
+
+****  Dec Doc Found: False
+
+Page: 41 ocrText: GBA1080921111
  ocrResult 1: GBA1080921111
  ocrResult 2:  
  ocrResult 3:  
  ocrResult 4:  
  ocrResult 5:  
 
-Page: 47 ocrText: GBA 108099 0913
+
+****  Dec Doc Found: False
+
+Page: 42 ocrText: GBA 108099 0913
  ocrResult 1: GBA
  ocrResult 2: 108099
  ocrResult 3: 0913
  ocrResult 4:  
  ocrResult 5:  
 
-Page: 48 ocrText: GBA106109 0115
+
+****  Dec Doc Found: False
+
+Page: 43 ocrText: GBA106109 0115
  ocrResult 1: GBA106109
  ocrResult 2: 0115
  ocrResult 3:  
  ocrResult 4:  
  ocrResult 5:  
 
-Page: 49 ocrText: GBA 400001 0516
+
+****  Dec Doc Found: False
+
+Page: 44 ocrText: GBA 400001 0516
  ocrResult 1: GBA
  ocrResult 2: 400001
  ocrResult 3: 0516
  ocrResult 4:  
  ocrResult 5:  
 
-Page: 50 ocrText: GBA 400001 0516
+
+****  Dec Doc Found: True
+
+Page: 45 ocrText: GBA 400001 0516
  ocrResult 1: GBA
  ocrResult 2: 400001
  ocrResult 3: 0516
  ocrResult 4:  
  ocrResult 5:  
 
-Page: 51 ocrText: CP 00 101012
+
+****  Dec Doc Found: True
+
+Page: 46 ocrText: CP 00 101012
  ocrResult 1: CP
  ocrResult 2: 00
  ocrResult 3: 101012
  ocrResult 4:  
  ocrResult 5:  
 
-Page: 52 ocrText: Page 2 of 16
+
+****  Dec Doc Found: False
+
+Page: 47 ocrText: Page 2 of 16
  ocrResult 1: Page
  ocrResult 2: 2
  ocrResult 3: of
  ocrResult 4: 16
  ocrResult 5:  
 
-Page: 53 ocrText: CP 00 101012
+
+****  Dec Doc Found: False
+
+Page: 48 ocrText: CP 00 101012
  ocrResult 1: CP
  ocrResult 2: 00
  ocrResult 3: 101012
  ocrResult 4:  
  ocrResult 5:  
 
-Page: 54 ocrText: Page 4 of 16
+
+****  Dec Doc Found: False
+
+Page: 49 ocrText: Page 4 of 16
  ocrResult 1: Page
  ocrResult 2: 4
  ocrResult 3: of
  ocrResult 4: 16
  ocrResult 5:  
 
-Page: 55 ocrText: CP 00 101012
+
+****  Dec Doc Found: False
+
+Page: 50 ocrText: CP 00 101012
  ocrResult 1: CP
  ocrResult 2: 00
  ocrResult 3: 101012
  ocrResult 4:  
  ocrResult 5:  
 
-Page: 56 ocrText: Page 6 of 16
+
+****  Dec Doc Found: False
+
+Page: 51 ocrText: Page 6 of 16
  ocrResult 1: Page
  ocrResult 2: 6
  ocrResult 3: of
  ocrResult 4: 16
  ocrResult 5:  
 
-Page: 57 ocrText: CP 00 101012
+
+****  Dec Doc Found: False
+
+Page: 52 ocrText: CP 00 101012
  ocrResult 1: CP
  ocrResult 2: 00
  ocrResult 3: 101012
  ocrResult 4:  
  ocrResult 5:  
 
-Page: 58 ocrText: Page 8 of 16
+
+****  Dec Doc Found: False
+
+Page: 53 ocrText: Page 8 of 16
  ocrResult 1: Page
  ocrResult 2: 8
  ocrResult 3: of
  ocrResult 4: 16
  ocrResult 5:  
 
-Page: 59 ocrText: CP 00 101012
+
+****  Dec Doc Found: False
+
+Page: 54 ocrText: CP 00 101012
  ocrResult 1: CP
  ocrResult 2: 00
  ocrResult 3: 101012
  ocrResult 4:  
  ocrResult 5:  
 
-Page: 60 ocrText: Page 10 of 16
+
+****  Dec Doc Found: False
+
+Page: 55 ocrText: Page 10 of 16
  ocrResult 1: Page
  ocrResult 2: 10
  ocrResult 3: of
  ocrResult 4: 16
  ocrResult 5:  
 
-Page: 61 ocrText: CP 00 101012
+
+****  Dec Doc Found: False
+
+Page: 56 ocrText: CP 00 101012
  ocrResult 1: CP
  ocrResult 2: 00
  ocrResult 3: 101012
  ocrResult 4:  
  ocrResult 5:  
 
-Page: 62 ocrText: Page 12 of 16
+
+****  Dec Doc Found: False
+
+Page: 57 ocrText: Page 12 of 16
  ocrResult 1: Page
  ocrResult 2: 12
  ocrResult 3: of
  ocrResult 4: 16
  ocrResult 5:  
 
-Page: 63 ocrText: CP 00 101012
+
+****  Dec Doc Found: False
+
+Page: 58 ocrText: CP 00 101012
  ocrResult 1: CP
  ocrResult 2: 00
  ocrResult 3: 101012
  ocrResult 4:  
  ocrResult 5:  
 
-Page: 64 ocrText: Page 14 of 16
+
+****  Dec Doc Found: False
+
+Page: 59 ocrText: Page 14 of 16
  ocrResult 1: Page
  ocrResult 2: 14
  ocrResult 3: of
  ocrResult 4: 16
  ocrResult 5:  
 
-Page: 65 ocrText: CP 00 101012
+
+****  Dec Doc Found: False
+
+Page: 60 ocrText: CP 00 101012
  ocrResult 1: CP
  ocrResult 2: 00
  ocrResult 3: 101012
  ocrResult 4:  
  ocrResult 5:  
 
-Page: 66 ocrText: Page 16 of 16
+
+****  Dec Doc Found: False
+
+Page: 61 ocrText: Page 16 of 16
  ocrResult 1: Page
  ocrResult 2: 16
  ocrResult 3: of
  ocrResult 4: 16
  ocrResult 5:  
 
-Page: 67 ocrText: CP 00 90 07 88
+
+****  Dec Doc Found: False
+
+Page: 62 ocrText: CP 00 90 07 88
  ocrResult 1: CP
  ocrResult 2: 00
  ocrResult 3: 90
  ocrResult 4: 07
  ocrResult 5: 88
 
-Page: 68 ocrText: Page 2 of 2
+
+****  Dec Doc Found: False
+
+Page: 63 ocrText: Page 2 of 2
  ocrResult 1: Page
  ocrResult 2: 2
  ocrResult 3: of
  ocrResult 4: 2
  ocrResult 5:  
 
-Page: 69 ocrText: CP 10 301012
+
+****  Dec Doc Found: False
+
+Page: 64 ocrText: CP 10 301012
  ocrResult 1: CP
  ocrResult 2: 10
  ocrResult 3: 301012
  ocrResult 4:  
  ocrResult 5:  
 
-Page: 70 ocrText: Page 2 of 10
+
+****  Dec Doc Found: False
+
+Page: 65 ocrText: Page 2 of 10
  ocrResult 1: Page
  ocrResult 2: 2
  ocrResult 3: of
  ocrResult 4: 10
  ocrResult 5:  
 
-Page: 71 ocrText: CP 10 301012
+
+****  Dec Doc Found: False
+
+Page: 66 ocrText: CP 10 301012
  ocrResult 1: CP
  ocrResult 2: 10
  ocrResult 3: 301012
  ocrResult 4:  
  ocrResult 5:  
 
-Page: 72 ocrText: Page 4 of 10
+
+****  Dec Doc Found: False
+
+Page: 67 ocrText: Page 4 of 10
  ocrResult 1: Page
  ocrResult 2: 4
  ocrResult 3: of
  ocrResult 4: 10
  ocrResult 5:  
 
-Page: 73 ocrText: CP 10 301012
+
+****  Dec Doc Found: False
+
+Page: 68 ocrText: CP 10 301012
  ocrResult 1: CP
  ocrResult 2: 10
  ocrResult 3: 301012
  ocrResult 4:  
  ocrResult 5:  
 
-Page: 74 ocrText: Page 6 of 10
+
+****  Dec Doc Found: False
+
+Page: 69 ocrText: Page 6 of 10
  ocrResult 1: Page
  ocrResult 2: 6
  ocrResult 3: of
  ocrResult 4: 10
  ocrResult 5:  
 
-Page: 75 ocrText: CP 10 301012
+
+****  Dec Doc Found: False
+
+Page: 70 ocrText: CP 10 301012
  ocrResult 1: CP
  ocrResult 2: 10
  ocrResult 3: 301012
  ocrResult 4:  
  ocrResult 5:  
 
-Page: 76 ocrText: Page 8 of 10
+
+****  Dec Doc Found: False
+
+Page: 71 ocrText: Page 8 of 10
  ocrResult 1: Page
  ocrResult 2: 8
  ocrResult 3: of
  ocrResult 4: 10
  ocrResult 5:  
 
-Page: 77 ocrText: CP 10 301012
+
+****  Dec Doc Found: False
+
+Page: 72 ocrText: CP 10 301012
  ocrResult 1: CP
  ocrResult 2: 10
  ocrResult 3: 301012
  ocrResult 4:  
  ocrResult 5:  
 
-Page: 78 ocrText: Page 10 of 10
+
+****  Dec Doc Found: False
+
+Page: 73 ocrText: Page 10 of 10
  ocrResult 1: Page
  ocrResult 2: 10
  ocrResult 3: of
  ocrResult 4: 10
  ocrResult 5:  
 
-Page: 79 ocrText: CP12111000
+
+****  Dec Doc Found: False
+
+Page: 74 ocrText: CP12111000
  ocrResult 1: CP12111000
  ocrResult 2:  
  ocrResult 3:  
  ocrResult 4:  
  ocrResult 5:  
 
-Page: 80 ocrText: GBA 404002 0813
+
+****  Dec Doc Found: False
+
+Page: 75 ocrText: GBA 404002 0813
  ocrResult 1: GBA
  ocrResult 2: 404002
  ocrResult 3: 0813
  ocrResult 4:  
  ocrResult 5:  
 
-Page: 81 ocrText: GBA 404011 1012
+
+****  Dec Doc Found: False
+
+Page: 76 ocrText: GBA 404011 1012
  ocrResult 1: GBA
  ocrResult 2: 404011
  ocrResult 3: 1012
  ocrResult 4:  
  ocrResult 5:  
 
-Page: 82 ocrText: GBA 404011 1012
+
+****  Dec Doc Found: False
+
+Page: 77 ocrText: GBA 404011 1012
  ocrResult 1: GBA
  ocrResult 2: 404011
  ocrResult 3: 1012
  ocrResult 4:  
  ocrResult 5:  
 
-Page: 83 ocrText: GBA 404012 1208
+
+****  Dec Doc Found: False
+
+Page: 78 ocrText: GBA 404012 1208
  ocrResult 1: GBA
  ocrResult 2: 404012
  ocrResult 3: 1208
  ocrResult 4:  
  ocrResult 5:  
 
-Page: 84 ocrText: (SBA 404030 0116
+
+****  Dec Doc Found: False
+
+Page: 79 ocrText: (SBA 404030 0116
  ocrResult 1: (SBA
  ocrResult 2: 404030
  ocrResult 3: 0116
  ocrResult 4:  
  ocrResult 5:  
 
-Page: 85 ocrText: GBA 404031 0417
+
+****  Dec Doc Found: False
+
+Page: 80 ocrText: GBA 404031 0417
  ocrResult 1: GBA
  ocrResult 2: 404031
  ocrResult 3: 0417
  ocrResult 4:  
  ocrResult 5:  
+
+
+****  Dec Doc Found: False
+
+Page: 81 ocrText: GBA 404031 0417
+ ocrResult 1: GBA
+ ocrResult 2: 404031
+ ocrResult 3: 0417
+ ocrResult 4:  
+ ocrResult 5:  
+
+
+****  Dec Doc Found: False
+
+Page: 82 ocrText: GBA 404032 0417
+ ocrResult 1: GBA
+ ocrResult 2: 404032
+ ocrResult 3: 0417
+ ocrResult 4:  
+ ocrResult 5:  
+
+
+****  Dec Doc Found: False
+
+Page: 83 ocrText: GBA 404033 0417
+ ocrResult 1: GBA
+ ocrResult 2: 404033
+ ocrResult 3: 0417
+ ocrResult 4:  
+ ocrResult 5:  
+
+
+****  Dec Doc Found: False
+
+Page: 84 ocrText: IL 02 49 09 08
+ ocrResult 1: IL
+ ocrResult 2: 02
+ ocrResult 3: 49
+ ocrResult 4: 09
+ ocrResult 5: 08
+
+
+****  Dec Doc Found: False
+
+Page: 85 ocrText: Page 2 of 2
+ ocrResult 1: Page
+ ocrResult 2: 2
+ ocrResult 3: of
+ ocrResult 4: 2
+ ocrResult 5:  
+
+
+****  Dec Doc Found: False

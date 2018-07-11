@@ -60,6 +60,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
       <AssemblyReference>System.Collections.Immutable</AssemblyReference>
       <AssemblyReference>UiPath.Vision.Core</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualStudio.Services.Common</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Flowchart DisplayName="Main" sap2010:WorkflowViewState.IdRef="Flowchart_1">
@@ -289,6 +290,7 @@
                                             <Variable x:TypeArguments="x:Boolean" Name="glDecExists" />
                                             <Variable x:TypeArguments="scg:IEnumerable(scg:KeyValuePair(sd:Rectangle, x:String))" Name="ocrResult" />
                                             <Variable x:TypeArguments="x:String" Name="ocrText" />
+                                            <Variable x:TypeArguments="x:Boolean" Name="foundDecDoc" />
                                           </Sequence.Variables>
                                           <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Next Policy Page" EmptyField="False" sap2010:WorkflowViewState.IdRef="TypeInto_16" SendWindowMessages="False" SimulateType="False" Text="%[k(down)]">
                                             <ui:TypeInto.Target>
@@ -312,7 +314,9 @@
                                               </ui:Target>
                                             </ui:GetOCRText.Target>
                                           </ui:GetOCRText>
+                                          <r:DocumentNumberCheck CheckDocumentParts="[(From r In ocrResult Select r.Value).ToList()]" DisplayName="Document number check" DocumentNumbers="[new List(of string)(new string() {&quot;GBA 900001&quot;, &quot;GBA 100001&quot;, &quot;GBA 400001&quot; })]" sap2010:WorkflowViewState.IdRef="DocumentNumberCheck_1" Result="[foundDecDoc]" />
                                           <ui:AppendLine DisplayName="Append line" FileName="OCR_IR_DocNumbers.txt" sap2010:WorkflowViewState.IdRef="AppendLine_2" Text="[&quot;Page: &quot; + (counter + 1).ToString + &quot; ocrText: &quot; + ocrText + vbcrlf + &quot; ocrResult 1: &quot; + If( Not (ocrResult(0).value is Nothing), ocrResult(0).value, &quot; &quot;) + vbcrlf   + &quot; ocrResult 2: &quot; + If( Not (ocrResult(1).value is Nothing), ocrResult(1).value, &quot; &quot;)  + vbcrlf  + &quot; ocrResult 3: &quot; + If( Not (ocrResult(2).value is Nothing), ocrResult(2).value, &quot; &quot;) + vbcrlf  + &quot; ocrResult 4: &quot; + If( Not (ocrResult(3).value is Nothing), ocrResult(3).value, &quot; &quot;)+ vbcrlf  + &quot; ocrResult 5: &quot; + If( Not (ocrResult(4).value is Nothing), ocrResult(4).value, &quot; &quot;) + vbcrlf]" />
+                                          <ui:AppendLine DisplayName="Append line" FileName="OCR_IR_DocNumbers.txt" sap2010:WorkflowViewState.IdRef="AppendLine_4" Text="[vbcrlf +&quot;****  Dec Doc Found: &quot; + foundDecDoc.ToString +vbcrlf]" />
                                           <Assign DisplayName="increment counter" sap2010:WorkflowViewState.IdRef="Assign_16">
                                             <Assign.To>
                                               <OutArgument x:TypeArguments="x:Int32">[counter]</OutArgument>
@@ -491,16 +495,7 @@
     </FlowStep>
     <x:Reference>__ReferenceID7</x:Reference>
     <x:Reference>__ReferenceID8</x:Reference>
-    <FlowStep sap2010:WorkflowViewState.IdRef="FlowStep_54">
-      <r:SimpleFormula DisplayName="Square of Sum" FirstNumber="2" sap2010:WorkflowViewState.IdRef="SimpleFormula_1" ResultNumber="[CustomResult]" SecondNumber="3" />
-      <FlowStep.Next>
-        <FlowStep x:Name="__ReferenceID9" sap2010:WorkflowViewState.IdRef="FlowStep_55">
-          <ui:MessageBox ChosenButton="{x:Null}" Buttons="Ok" Caption="Just a Test" DisplayName="Message box" sap2010:WorkflowViewState.IdRef="MessageBox_4" Text="[&quot;Result: &quot; + CustomResult.ToString]" TopMost="True" />
-        </FlowStep>
-      </FlowStep.Next>
-    </FlowStep>
-    <x:Reference>__ReferenceID9</x:Reference>
-    <sads:DebugSymbol.Symbol>dylDOlxkZXZcVWlQYXRoXElSTWFya1BvbGljeVBhZ2VzXE1haW4ueGFtbEtBA/gDDwIBAUMzQzcCAQNENEQ/AgECSwlL9AECAVRODWQYAgFLZxF/HAIBQ4IBFZYBJgIBPJkBGdABKQIBO9MBHYICKAIBKIUCIZMCLAIBJpYCJcYCMAIBBEtyS8ABAgFVTw9jIAIBTGsTbyECAUdwE34eAgFEggGPAoIBkwMCAUKIARuTASYCAT3UAR+BAjACASmRArQBkQLdBAIBJ5cCJ5cCwgECASOYAieYAuMGAgEgmQInxQIxAgEFT4kCT9ACAgFTT9sCT+ICAgFSVRVgIAIBTW2mAW2dBQIBSmulAmu1AgIBSHymAXy/AgIBRnBVcFsCAUWJAR2NASsCAUCOAR2SASsCAT7UAa4C1AH1AgIBOtoBJf4BMAIBKpcCrwGXAr8BAgEllwJglwJ3AgEkmAKlAZgC4AYCASKYAlmYAnACASGbAlebAloCAQadAjydAlQCAR2eAinEAjQCAQdWF1onAgFQWxdfJwIBTokBsAKJAcYCAgFBjgGxAo4BxwICAT/bASfuATcCATDvASf2ATACASz3ASf9ATcCASulAiupAjkCARqqAiu6AjsCARC7Aiu7AtAGAgENvAIrwwI0AgEIWKoBWMkCAgFRXaoBXckCAgFP5QGgAeUB2QICATnsAVPsAWoCATfhAS3hAcsCAgEx9AFR9AGnAQIBL/EBUvEBXAIBLacCvgGnAqoEAgEcpQK9AqUCyQICARu0AqQBtAKQBAIBGbACMbACswICARG7AqkBuwLNBgIBD7sCXbsCdAIBDsECVcECYgIBC74CVr4CXwIBCeEBxQLhAcgCAgE24QGtAuEBvgICATXhAe4B4QH3AQIBM+EBjwLhAZQCAgEysAKlArACsAICARewApwCsAKfAgIBFrACiAKwApUCAgEVsALIAbAC0QECAROwAuoBsALvAQIBEg==</sads:DebugSymbol.Symbol>
+    <sads:DebugSymbol.Symbol>dylDOlxkZXZcVWlQYXRoXElSTWFya1BvbGljeVBhZ2VzXE1haW4ueGFtbFJCA/MDDwIBAUQzRDcCAQNFNEU/AgECTAlM9AECAVxPDWUYAgFTaBGAARwCAUuDARWXASYCAUSaARnRASkCAUPUAR2DAigCATCGAiGUAiwCAS6XAiXKAjACAQRMckzAAQIBXVAPZCACAVRsE3AhAgFPcRN/HgIBTIMBjwKDAZMDAgFKiQEblAEmAgFF1QEfggIwAgExkgK0AZIC3QQCAS+YAieYAsIBAgErmQInmQLjBgIBKJoCJ8kCMQIBBVCJAlDQAgIBW1DbAlDiAgIBWlYVYSACAVVupgFunQUCAVJspQJstQICAVB9pgF9vwICAU5xVXFbAgFNigEdjgErAgFIjwEdkwErAgFG1QGuAtUB9QICAULbASX/ATACATKYAq8BmAK/AQIBLZgCYJgCdwIBLJkCpQGZAuAGAgEqmQJZmQJwAgEpnAJXnAJaAgEGngI8ngJUAgElnwIpyAI0AgEHVxdbJwIBWFwXYCcCAVaKAbACigHGAgIBSY8BsQKPAccCAgFH3AEn7wE3AgE48AEn9wEwAgE0+AEn/gE3AgEzpwIrqwI5AgEirAIrvAI7AgEYvQIrvQL8AgIBE74CK74C0AYCARC/Aiu/AvgBAgENwAIrxwI0AgEIWaoBWckCAgFZXqoBXskCAgFX5gGgAeYB2QICAUHtAVPtAWoCAT/iAS3iAcsCAgE59QFR9QGnAQIBN/IBUvIBXAIBNakCvgGpAqoEAgEkpwK9AqcCyQICASO2AqQBtgKQBAIBIbICMbICswICARm9AlW9AoYBAgEXvQK7Ab0CqgICARa9AuoCvQL5AgIBFL4CqQG+As0GAgESvgJdvgJ0AgERvwKpAb8C9QECAQ+/Al2/AnQCAQ7FAlXFAmICAQvCAlbCAl8CAQniAcUC4gHIAgIBPuIBrQLiAb4CAgE94gHuAeIB9wECATviAY8C4gGUAgIBOrICpQKyArACAgEfsgKcArICnwICAR6yAogCsgKVAgIBHbICyAGyAtEBAgEbsgLqAbIC7wECARo=</sads:DebugSymbol.Symbol>
   </Flowchart>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
@@ -620,9 +615,11 @@
       </sap2010:ViewStateData>
       <sap2010:ViewStateData Id="GoogleOCR_9" sap:VirtualizedContainerService.HintSize="200,22" />
       <sap2010:ViewStateData Id="GetOCRText_6" sap:VirtualizedContainerService.HintSize="314,168" />
+      <sap2010:ViewStateData Id="DocumentNumberCheck_1" sap:VirtualizedContainerService.HintSize="314,22" />
       <sap2010:ViewStateData Id="AppendLine_2" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="AppendLine_4" sap:VirtualizedContainerService.HintSize="314,87" />
       <sap2010:ViewStateData Id="Assign_16" sap:VirtualizedContainerService.HintSize="314,60" />
-      <sap2010:ViewStateData Id="Sequence_62" sap:VirtualizedContainerService.HintSize="336,610">
+      <sap2010:ViewStateData Id="Sequence_62" sap:VirtualizedContainerService.HintSize="336,799">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -630,14 +627,14 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="DoWhile_4" sap:VirtualizedContainerService.HintSize="464,772">
+      <sap2010:ViewStateData Id="DoWhile_4" sap:VirtualizedContainerService.HintSize="464,961">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="Sequence_61" sap:VirtualizedContainerService.HintSize="486,1150">
+      <sap2010:ViewStateData Id="Sequence_61" sap:VirtualizedContainerService.HintSize="486,1339">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -647,7 +644,7 @@
       <sap2010:ViewStateData Id="FlowStep_51">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <av:Point x:Key="ShapeLocation">410,324.5</av:Point>
+            <av:Point x:Key="ShapeLocation">60,644.5</av:Point>
             <av:Size x:Key="ShapeSize">200,51</av:Size>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
@@ -655,9 +652,9 @@
       <sap2010:ViewStateData Id="FlowStep_44">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <av:Point x:Key="ShapeLocation">60,654.5</av:Point>
+            <av:Point x:Key="ShapeLocation">60,564.5</av:Point>
             <av:Size x:Key="ShapeSize">200,51</av:Size>
-            <av:PointCollection x:Key="ConnectorLocation">160,705.5 160,735.5 380,735.5 380,350 410,350</av:PointCollection>
+            <av:PointCollection x:Key="ConnectorLocation">160,615.5 160,644.5</av:PointCollection>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
@@ -666,7 +663,7 @@
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <av:Point x:Key="ShapeLocation">60,484.5</av:Point>
             <av:Size x:Key="ShapeSize">200,51</av:Size>
-            <av:PointCollection x:Key="ConnectorLocation">160,535.5 160,654.5</av:PointCollection>
+            <av:PointCollection x:Key="ConnectorLocation">160,535.5 160,564.5</av:PointCollection>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
@@ -735,7 +732,7 @@
       <sap2010:ViewStateData Id="FlowStep_14">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <av:Point x:Key="ShapeLocation">430,574.5</av:Point>
+            <av:Point x:Key="ShapeLocation">410,664.5</av:Point>
             <av:Size x:Key="ShapeSize">200,51</av:Size>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
@@ -750,9 +747,9 @@
       <sap2010:ViewStateData Id="FlowStep_16">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <av:Point x:Key="ShapeLocation">430,494.5</av:Point>
+            <av:Point x:Key="ShapeLocation">410,584.5</av:Point>
             <av:Size x:Key="ShapeSize">200,51</av:Size>
-            <av:PointCollection x:Key="ConnectorLocation">530,545.5 530,574.5</av:PointCollection>
+            <av:PointCollection x:Key="ConnectorLocation">510,635.5 510,664.5</av:PointCollection>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
@@ -815,39 +812,8 @@
       <sap2010:ViewStateData Id="FlowStep_50">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <av:Point x:Key="ShapeLocation">420,404.5</av:Point>
+            <av:Point x:Key="ShapeLocation">400,514.5</av:Point>
             <av:Size x:Key="ShapeSize">200,51</av:Size>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="SimpleFormula_1" sap:VirtualizedContainerService.HintSize="200,22">
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="MessageBox_4" sap:VirtualizedContainerService.HintSize="200,51">
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="FlowStep_55">
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <av:Point x:Key="ShapeLocation">420,204.5</av:Point>
-            <av:Size x:Key="ShapeSize">200,51</av:Size>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="FlowStep_54">
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <av:Point x:Key="ShapeLocation">420,139</av:Point>
-            <av:Size x:Key="ShapeSize">200,22</av:Size>
-            <av:PointCollection x:Key="ConnectorLocation">520,161 520,204.5</av:PointCollection>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
